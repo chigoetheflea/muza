@@ -1,0 +1,12 @@
+.projects-home {
+    padding-top: 80px;
+    padding-bottom: 30px;
+    background: url('/images/muza_pattern_gray.svg') 50% 20%;
+    background-size: 100%;
+    will-change: background-position;
+    animation: bg_move 60s linear infinite;
+}
+
+.projects-home__grid {
+    margin-top: $pdd-top-bottom;
+}

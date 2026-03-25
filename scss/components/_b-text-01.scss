@@ -1,0 +1,28 @@
+.b-text-01 {
+    display: flex;
+    border-top: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+}
+
+.b-text-01__left,
+.b-text-01__right {
+    padding-top: $pdd-top-bottom;
+    padding-bottom: $pdd-top-bottom;
+
+}
+
+.b-text-01__left {
+    padding-right: $pdd-side;
+    border-right: 1px solid $gray;
+}
+
+.b-text-01__right {
+    flex-grow: 1;
+    padding-left: $pdd-side;
+
+    &--big-text {
+        font-weight: 350;
+        font-size: 40px;
+        line-height: 1.25;
+    }
+}

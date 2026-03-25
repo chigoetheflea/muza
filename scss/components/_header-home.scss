@@ -1,0 +1,23 @@
+.header-home {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;    
+}
+
+.header-home__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.header-home__logo {
+    width: 100%;
+    max-width: 550px;
+    aspect-ratio: 670 / 298;
+
+    svg {
+        fill: white;        
+    }
+}

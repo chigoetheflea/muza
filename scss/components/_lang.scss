@@ -1,0 +1,31 @@
+.lang {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+
+    text-transform: uppercase;
+    color: $rust;
+    background-color: $gray;
+    border-radius: 12px;
+
+    a, span {
+        padding: 5px 5px
+    }
+
+    a {
+        color: $white;
+
+        &:hover,
+        &:focus {
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        &:active {
+            color: $rust;
+        }
+    }
+}
+

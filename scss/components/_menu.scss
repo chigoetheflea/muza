@@ -1,0 +1,41 @@
+.menu {
+    display: flex;
+    gap: 10px;
+}
+
+.menu__wrapper {
+    @include list-reset;
+
+    display: flex;
+    padding: 0;
+    background-color: $white;
+    border-radius: 12px;
+    overflow: hidden;
+
+    a {
+        display: inline-block;
+        padding: 10px 15px;
+        text-decoration: none;
+        color: $gray;
+        border-radius: 0;
+
+        &:hover,
+        &:focus {
+            color: $rust;
+            background-color: $gray-light;
+        }
+
+        &:active {
+            color: $gray;
+            background-color: $rust;
+        }        
+    }
+
+    li:first-of-type a {
+        padding-left: 25px;
+    }
+    li:last-of-type a {
+        padding-right: 25px;
+    }
+}
+

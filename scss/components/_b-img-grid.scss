@@ -1,0 +1,9 @@
+.b-img-grid {
+    display: grid;
+    grid-template-areas: 
+    "project_01  project_02  project_03"
+    "project_04  project_05  empty_01"
+    "project_06  empty_02  more";
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}

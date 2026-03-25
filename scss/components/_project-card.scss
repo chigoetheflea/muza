@@ -1,0 +1,83 @@
+.project-card {
+    &--01 {
+        grid-area: project_01;
+    }
+
+    &--02 {
+        grid-area: project_02;
+    }
+
+    &--03 {
+        grid-area: project_03;
+    }
+
+    &--04 {
+        grid-area: project_04;
+    }
+
+    &--05 {
+        grid-area: project_05;
+    }
+
+    &--06 {
+        grid-area: project_06;
+    }
+}
+
+.project-card a {
+    display: flex;
+    flex-direction: column;
+    color: $gray;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        .project-card__info {
+            background-color: $gray-light;
+        }
+
+        .progect-card__arrow {
+            color: $rust;
+
+            svg {
+                stroke: $rust
+            }
+        }
+    }
+
+    &:active {
+        color: $gray;
+        transform: scale(0.98);
+    }    
+}
+
+.project-card__info {
+    @include transition;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+    
+    border: 1px solid $gray;
+    border-top: none;
+    background-color: $white;
+}
+
+.project-card__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+        margin: 0;
+    }
+}
+
+.progect-card__arrow {
+    color: $gray;
+
+    svg {
+        stroke: $gray;
+    }
+}

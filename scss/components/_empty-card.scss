@@ -1,0 +1,23 @@
+.empty-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    grid-area: more;
+    gap: 20px;
+
+    background-color: $white;
+    border-radius: 50px;
+    border: 1px solid $gray;
+}
+
+.empty-card__title {
+    text-transform: none;
+}
+
+.empty-card__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}

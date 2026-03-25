@@ -1,0 +1,35 @@
+.arrow-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    svg {
+        fill: none;
+        stroke: $gray;
+        stroke-width: 2px;
+        width: 18px;
+        height: 18px;
+    }
+
+    &--rust {
+        color: $rust;
+
+        svg {
+            stroke: $rust;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white;
+
+            svg {
+                stroke: $white;
+            }
+        }
+
+        &:active {
+            outline-color: $white;
+        }
+    }
+}

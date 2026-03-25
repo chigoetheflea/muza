@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'Onest';
+    src: url('../../fonts/Onest.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@keyframes dot_fill {
+    from {width: 0;}
+    to {width: 100%;}
+}
+
+@keyframes bg_move {
+    0% {background-position: 50% 10%;}
+    100% {background-position: 50% 90%;}
+}
+
+html {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+
+    min-width: 360px;
+    max-width: 100vw;
+    min-height: 100vh;    
+
+    font-family: "Onest", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $gray;
+    text-rendering: optimizeLegibility;
+
+    background-color: white;
+    overflow-x: hidden;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+*::selection {
+    color: $gray;
+    background-color: $rust;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    @include transition;
+
+    color: $rust;    
+    border-radius: 5px;
+    text-decoration: underline;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+a:focus {
+    outline: 1px dotted $rust;
+    outline-offset: 5px;    
+}
+
+a:active {
+    color: $brown;
+}
+
+button {
+    @include transition;
+}
+
+button:focus {
+    outline: 1px dotted $rust;
+    outline-offset: 5px;
+}
+
+em, i {
+  //font-style: normal !important;
+}
+
+p:empty {
+  display: none !important;
+}
+
+p:first-of-type {
+    margin-top: 0;
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+}
