@@ -1,0 +1,67 @@
+.slider-line__wrapper {
+    display: flex;
+    border-top: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+}
+
+.slider-line__controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid $gray;
+}
+
+.slider-line__arrow {
+    padding: 0;
+    margin: 0;
+    height: 80px;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+
+    svg {
+        @include transition-svg;
+
+        height: 24px;
+        fill: none;
+        stroke: $gray;
+        stroke-width: 1.5px;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $gray-light;
+    }
+
+    &:active {
+        svg {
+            stroke: $rust;
+        }
+    }
+
+    &--prev {
+        &:hover,
+        &:focus {
+            svg {
+                transform: translateX(-15px);
+            }
+        }
+    }
+
+    &--next {
+        &:hover,
+        &:focus {
+            svg {
+                transform: translateX(15px);
+            }
+        }
+    }
+}
+
+.slider-line__more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid $gray;
+    border-left: 1px solid $gray;
+}

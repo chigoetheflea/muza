@@ -1,0 +1,41 @@
+.post-card {
+    @include transition;
+
+    display: flex;    
+    width: 25%;    
+    border-right: 1px solid $gray;
+
+    &:focus-within {
+        background-color: $rust;
+    }
+    
+    a {
+        @include transition;
+
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        color: $gray;
+        text-decoration: none;
+        border-radius: 0;
+
+        &:hover,
+        &:focus {
+            background-color: $gray-light;
+        }
+
+        &:active {
+            color: $gray;
+            transform: scale(0.98);
+            border-radius: 10px;
+        }
+    }
+}
+
+.post-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

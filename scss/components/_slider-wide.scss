@@ -1,3 +1,7 @@
+:root {
+    --slider-autoplay-delay: 1s;
+}
+
 .slider-wide {
     position: relative;
     height: 100vh;
@@ -12,16 +16,15 @@
 .slider-wide__slide {
     position: relative;
 
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr 1fr;
     justify-items: start;
     align-items: end;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    
-    position: relative;
+    padding: 0;    
     width: 100%;
     height: 100%;
+
+    overflow: hidden;
 
     &::after {
         position: absolute;
@@ -43,19 +46,36 @@
         
         content: '';
     }
+
+    &--animated {
+        animation: shake 0.1s forwards;
+    }
 }
 
-.slider-wide__img {
+.slider-wide__img-wrapper {
     position: absolute;
     z-index: 120;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+}
+
+.slider-wide__img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    transform: scale(1.1);
+
+    &--animated {
+        animation: sliderWideImageShake 0.45s ease-out;
+    }
 }
 
 .slider-wide__info {
+    @include transition;
+
     position: relative;
     z-index: 150;
 
@@ -63,10 +83,18 @@
     flex-direction: column;
     gap: 20px;
     padding: 10px 25px;
+    margin: 0 0 30px 50px;
 
     background-color: $gray;
     color: $white;   
     border-radius: 10px; 
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slider-wide__info--active {
+    pointer-events: auto;
+    animation: slide 0.5s ease-out forwards;
 }
 
 .slider-wide__more {
@@ -93,6 +121,8 @@
 
 
 .slider-wide__dot {
+    @include transition;
+
     display: flex;
     width: 200px;
     height: 8px;
@@ -105,10 +135,19 @@
         height: 100%;
         background-color: $rust;
     }
-}
 
-.slider-wide__dot--active {
-    span {
-        animation: dot_fill 5s linear infinite;
+    &:not(.slider-wide__dot--active) {
+        cursor: pointer;        
+        
+        &:hover,
+        &:focus {
+            background-color: $rust;
+        }
+    }
+
+    &--active {
+        span {
+            animation: dot_fill var(--slider-autoplay-delay) linear forwards;
+        }
     }
 }

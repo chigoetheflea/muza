@@ -9,8 +9,10 @@
     color: $gray;    
     text-decoration: none;
     font-family: inherit;
+    font-weight: 500;
     white-space: nowrap;
     line-height: 1;
+    font-size: 20px;
 
     background-color: $rust;
     border-radius: 12px;
@@ -28,8 +30,21 @@
         transform: scale(0.96);
     }
 
+    &--gray {
+        background-color: $gray;
+        color: $rust;
+        outline-color: $gray;
+
+        &:hover,
+        &:focus {
+            background-color: $white;
+            color: $gray;
+        }
+    }
+
     &--empty {
         padding: 6px 10px;
+        font-size: 16px;
         background: transparent;
         border: 1px solid $gray;
         border-radius: 8px;
@@ -40,9 +55,8 @@
     }
 
     &--big {
-        font-size: 20px;
-        font-weight: 400;
+        font-size: 24px;
         line-height: 1;
-        padding: 10px 25px;
+        padding: 14px 25px;
     }
 }

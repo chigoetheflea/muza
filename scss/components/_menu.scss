@@ -1,6 +1,30 @@
 .menu {
     display: flex;
     gap: 10px;
+
+    &--inversed {
+        .menu__wrapper {
+            order: 1;
+            background-color: transparent;
+            border: 1px solid $gray;
+
+            a {
+                font-weight: 600;
+                outline-color: $gray;
+
+                &:hover,
+                &:focus {
+                    color: $rust;
+                    background-color: $gray;
+                }
+
+                &:active {
+                    color: $gray;
+                    background-color: $white
+                } 
+            }
+        }
+    }
 }
 
 .menu__wrapper {
@@ -14,9 +38,12 @@
 
     a {
         display: inline-block;
-        padding: 10px 15px;
+        padding: 14px 16px;
+
         text-decoration: none;
         color: $gray;
+        font-size: 20px;
+        line-height: 1;
         border-radius: 0;
 
         &:hover,
@@ -31,11 +58,17 @@
         }        
     }
 
+    li {
+        display: flex;
+
+
+    }
+
     li:first-of-type a {
-        padding-left: 25px;
+        padding-left: 20px;
     }
     li:last-of-type a {
-        padding-right: 25px;
+        padding-right: 20px;
     }
 }
 

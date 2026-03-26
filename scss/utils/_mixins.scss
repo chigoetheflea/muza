@@ -14,7 +14,15 @@
     transition: 
         fill $transition-delay ease,
         stroke $transition-delay ease,
-        stroke-width $transition-delay ease;
+        stroke-width $transition-delay ease,
+        color $transition-delay ease,
+        border $transition-delay ease,
+        box-shadow $transition-delay ease,
+        transform $transition-delay ease,
+        background-color $transition-delay ease,
+        filter $transition-delay ease,
+        background $transition-delay ease,
+        opacity $transition-delay ease;
 }
 
 @mixin list-reset {
