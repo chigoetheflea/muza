@@ -1,12 +1,16 @@
+.slider-line {
+    overflow: visible !important;
+}
+
 .slider-line__wrapper {
     display: flex;
-    border-top: 1px solid $gray;
-    border-bottom: 1px solid $gray;
+    align-items: stretch;    
 }
 
 .slider-line__controls {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    border-top: 1px solid $gray;
     border-bottom: 1px solid $gray;
 }
 
@@ -64,4 +68,8 @@
     align-items: center;
     border-right: 1px solid $gray;
     border-left: 1px solid $gray;
+}
+
+.slider-line__card {
+    transform: translateX(50px) !important;
 }

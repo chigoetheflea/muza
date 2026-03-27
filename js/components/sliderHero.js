@@ -2,13 +2,14 @@ import Swiper from 'swiper';
 import { Autoplay } from 'swiper/modules';
 
 const SLIDER = `.js-slider-wide`;
-const DOTS_CONTAINER = `.js-slider-dots`;
-const DOT = `.slider-wide__dot`;
-const DOT_PROGRESS_ELEMENT = `span`;
 const SLIDE_IMAGE = `.js-slider-wide-img`;
 const SLIDE_INFO = `.js-slider-wide-info`;
 
+const DOTS_CONTAINER = `.js-slider-dots`;
+const DOT = `.slider-wide__dot`;
+const DOT_PROGRESS_ELEMENT = `span`;
 const ACTIVE_DOT_CLASS = `slider-wide__dot--active`;
+
 const ANIMATED_IMAGE_CLASS = `slider-wide__img--animated`;
 const ACTIVE_INFO_CLASS = `slider-wide__info--active`;
 
@@ -46,7 +47,7 @@ const restartDotAnimation = (dot) => {
 
   setTimeout(() => {
     progressElement.style.animation = ``;
-    
+
     progressElement.style.setProperty(`--slider-autoplay-delay`, `${AUTOPLAY_DELAY}ms`);
   }, RESTART_ANIMATION_TIMEOUT);
 };

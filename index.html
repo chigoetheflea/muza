@@ -154,7 +154,7 @@
                 </div>
             </div>
 
-            <div class="b-text-01__right  b-text-01__right--big-text">
+            <div class="animated  b-text-01__right  b-text-01__right--big-text  js-animated" data-animation-offset="150">
                 <p>Это 20 лет опыта в проектировании и реализации масштабных общественных и жилых зданий, спортивных и зрелищных комплексов, а также передовых образовательных пространств мирового уровня.</p>
                 
                 <p>Мы создаём архитектуру, которая органично вплетается в ткань города, формирует среду и делает её гармоничной, выразительной и полезной для людей.</p>
@@ -303,7 +303,7 @@
                     </a>
                 </article>
 
-                <div class="empty-card">
+                <div class="animated  empty-card  js-animated" data-animation-offset="50">
                     <div class="empty-card__wrapper">
                         <p class="title  empty-card__title  title--small  title--regcase">Посмотрите<br>другие проекты</p>
     
@@ -316,95 +316,161 @@
         <section class="activity">
             <h2 class="title  padding-side  title--regular">Деятельность</h2>
 
-            <div class="slider-line  activity__slider">
-                <div class="slider-line__wrapper">
-                    <article class="post-card  slider-line__card">
-                        <a href="">
-                            <img src="/images/slider_mock_03.jpg" alt="">
-
-                            <div class="post-card__info">
-                                <time datetime="">2026 / 01 / 18</time>
-
-                                <h3 class="title  post-card__title  title--tiny">MUZA запускает новый жилой проект в историческом контексте</h3>
-
-                                <p class="post-card__excerpt">
-                                    Бюро представило концепцию жилого комплекса, интегрированного в сложившуюся городскую ткань. В основе — уважение к масштабу улицы и современная пластика фасадов.
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="post-card  slider-line__card">
-                        <a href="">
-                            <img src="/images/slider_mock_04.jpg" alt="">
-
-                            <div class="post-card__info">
-                                <time datetime="">2026 / 02 / 10</time>
-
-                                <h3 class="title  post-card__title  title--tiny">Образовательная архитектура: опыт, который меняет среду</h3>
-
-                                <p class="post-card__excerpt">
-                                    Разбираем подход MUZA к проектированию кампусов и общественных пространств. Как архитектура формирует сценарии поведения и влияет на качество обучения.
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="post-card  slider-line__card">
-                        <a href="">
-                            <img src="/images/slider_mock_05.jpg" alt="">
-
-                            <div class="post-card__info">
-                                <time datetime="">2026 / 02 / 13</time>
-
-                                <h3 class="title  post-card__title  title--tiny">Спортивный объект как точка притяжения района</h3>
-
-                                <p class="post-card__excerpt">
-                                    Новый проект спортивного комплекса ориентирован не только на функциональность, но и на создание общественного центра для жителей района.
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="post-card  slider-line__card">
-                        <a href="">
-                            <img src="/images/slider_mock_04.jpg" alt="">
-
-                            <div class="post-card__info">
-                                <time datetime="">2026 / 02 / 10</time>
-
-                                <h3 class="title  post-card__title  title--tiny">Образовательная архитектура: опыт, который меняет среду</h3>
-
-                                <p class="post-card__excerpt">
-                                    Разбираем подход MUZA к проектированию кампусов и общественных пространств. Как архитектура формирует сценарии поведения и влияет на качество обучения.
-                                </p>
-                            </div>
-                        </a>
-                    </article>
-                </div>
-
-                <div class="slider-line__controls">
-                    <button class="slider-line__arrow  slider-line__arrow--prev">
-                        <span class="visually-hidden">Назад</span>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 70 24">
-                            <polyline class="st0" points="12 23.09 .91 12 12 .91"/>
-                            <line class="st0" x1=".91" y1="12" x2="70" y2="12"/>
-                        </svg>
-                    </button>
-
-                    <div class="slider-line__more">
-                        <a href="" class="button  button--big">Еще материалы</a>
+            <div class="activity__wrapper">
+                <div class="swiper  slider-line  activity__slider  js-slider-line">
+                    <div class="swiper-wrapper  slider-line__wrapper">
+                        <article class="swiper-slide  post-card  slider-line__card">
+                            <a href="">
+                                <img src="/images/slider_mock_03.jpg" alt="">
+    
+                                <div class="post-card__info">
+                                    <time datetime="">2026 / 01 / 01</time>
+    
+                                    <h3 class="title  post-card__title  title--tiny">MUZA запускает новый жилой проект в историческом контексте</h3>
+    
+                                    <p class="post-card__excerpt">
+                                        Бюро представило концепцию жилого комплекса, интегрированного в сложившуюся городскую ткань. В основе — уважение к масштабу улицы и современная пластика фасадов.
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
+    
+                        <article class="swiper-slide  post-card  slider-line__card">
+                            <a href="">
+                                <img src="/images/slider_mock_04.jpg" alt="">
+    
+                                <div class="post-card__info">
+                                    <time datetime="">2026 / 02 / 02</time>
+    
+                                    <h3 class="title  post-card__title  title--tiny">Образовательная архитектура: опыт, который меняет среду</h3>
+    
+                                    <p class="post-card__excerpt">
+                                        Разбираем подход MUZA к проектированию кампусов и общественных пространств. Как архитектура формирует сценарии поведения и влияет на качество обучения.
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
+    
+                        <article class="swiper-slide  post-card  slider-line__card">
+                            <a href="">
+                                <img src="/images/slider_mock_05.jpg" alt="">
+    
+                                <div class="post-card__info">
+                                    <time datetime="">2026 / 03 / 03</time>
+    
+                                    <h3 class="title  post-card__title  title--tiny">Спортивный объект как точка притяжения района</h3>
+    
+                                    <p class="post-card__excerpt">
+                                        Новый проект спортивного комплекса ориентирован не только на функциональность, но и на создание общественного центра для жителей района.
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
+    
+                        <article class="swiper-slide  post-card  slider-line__card">
+                            <a href="">
+                                <img src="/images/slider_mock_04.jpg" alt="">
+    
+                                <div class="post-card__info">
+                                    <time datetime="">2026 / 04 / 04</time>
+    
+                                    <h3 class="title  post-card__title  title--tiny">Образовательная архитектура: опыт, который меняет среду</h3>
+    
+                                    <p class="post-card__excerpt">
+                                        Разбираем подход MUZA к проектированию кампусов и общественных пространств. Как архитектура формирует сценарии поведения и влияет на качество обучения.
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
+                        
+                        <article class="swiper-slide  post-card  slider-line__card">
+                            <a href="">
+                                <img src="/images/slider_mock_03.jpg" alt="">
+    
+                                <div class="post-card__info">
+                                    <time datetime="">2026 / 01 / 01</time>
+    
+                                    <h3 class="title  post-card__title  title--tiny">MUZA запускает новый жилой проект в историческом контексте</h3>
+    
+                                    <p class="post-card__excerpt">
+                                        Бюро представило концепцию жилого комплекса, интегрированного в сложившуюся городскую ткань. В основе — уважение к масштабу улицы и современная пластика фасадов.
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
+    
+                        <article class="swiper-slide  post-card  slider-line__card">
+                            <a href="">
+                                <img src="/images/slider_mock_04.jpg" alt="">
+    
+                                <div class="post-card__info">
+                                    <time datetime="">2026 / 02 / 02</time>
+    
+                                    <h3 class="title  post-card__title  title--tiny">Образовательная архитектура: опыт, который меняет среду</h3>
+    
+                                    <p class="post-card__excerpt">
+                                        Разбираем подход MUZA к проектированию кампусов и общественных пространств. Как архитектура формирует сценарии поведения и влияет на качество обучения.
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
+    
+                        <article class="swiper-slide  post-card  slider-line__card">
+                            <a href="">
+                                <img src="/images/slider_mock_05.jpg" alt="">
+    
+                                <div class="post-card__info">
+                                    <time datetime="">2026 / 03 / 03</time>
+    
+                                    <h3 class="title  post-card__title  title--tiny">Спортивный объект как точка притяжения района</h3>
+    
+                                    <p class="post-card__excerpt">
+                                        Новый проект спортивного комплекса ориентирован не только на функциональность, но и на создание общественного центра для жителей района.
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
+    
+                        <article class="swiper-slide  post-card  slider-line__card">
+                            <a href="">
+                                <img src="/images/slider_mock_04.jpg" alt="">
+    
+                                <div class="post-card__info">
+                                    <time datetime="">2026 / 04 / 04</time>
+    
+                                    <h3 class="title  post-card__title  title--tiny">Образовательная архитектура: опыт, который меняет среду</h3>
+    
+                                    <p class="post-card__excerpt">
+                                        Разбираем подход MUZA к проектированию кампусов и общественных пространств. Как архитектура формирует сценарии поведения и влияет на качество обучения.
+                                    </p>
+                                </div>
+                            </a>
+                        </article>
                     </div>
-
-                    <button class="slider-line__arrow  slider-line__arrow--next">
-                        <span class="visually-hidden">Вперед</span>
-
-                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 70 24">
-                            <polyline class="st0" points="58 .91 69.09 12 58 23.09"/>
-                            <line class="st0" x1="69.09" y1="12" y2="12"/>
-                        </svg>
-                    </button>
+    
+                    <div class="slider-line__controls">
+                        <button class="slider-line__arrow  slider-line__arrow--prev  js-slider-prev">
+                            <span class="visually-hidden">Назад</span>
+    
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 70 24">
+                                <polyline class="st0" points="12 23.09 .91 12 12 .91"/>
+                                <line class="st0" x1=".91" y1="12" x2="70" y2="12"/>
+                            </svg>
+                        </button>
+    
+                        <div class="slider-line__more">
+                            <a href="" class="button  button--big">Еще материалы</a>
+                        </div>
+    
+                        <button class="slider-line__arrow  slider-line__arrow--next  js-slider-next">
+                            <span class="visually-hidden">Вперед</span>
+    
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 70 24">
+                                <polyline class="st0" points="58 .91 69.09 12 58 23.09"/>
+                                <line class="st0" x1="69.09" y1="12" y2="12"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -430,7 +496,7 @@
             <p class="footer__copyright">2026 © МУЗА ФОРМ</p>
         </div>
 
-        <div class="footer__logo">
+        <div class="animated  footer__logo  js-animated" data-animation-offset="0">
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1423.14 172.21">
                 <path class="st0" d="M795.44,164.73v-30.94h-17.76c-11.84-.29-21.86-3.11-30.07-8.43s-14.39-12.57-18.53-21.75c-4.14-9.17-6.21-19.53-6.21-31.07.15-12.13,2.74-22.56,7.77-31.3,5.03-8.73,11.91-15.46,20.64-20.2,8.73-4.73,18.64-7.1,29.74-7.1h14.43V5.44c0-1.04.84-1.88,1.88-1.88h15.55c1.04,0,1.88.84,1.88,1.88v8.51h14.2c11.24,0,21.23,2.37,29.96,7.1,8.73,4.74,15.61,11.47,20.64,20.2s7.62,19.16,7.77,31.3c.15,11.54-2,21.9-6.44,31.07-4.44,9.18-10.84,16.42-19.2,21.75s-18.46,8.14-30.3,8.43h-16.65v30.94c0,1.03-.84,1.87-1.87,1.87h-15.56c-1.03,0-1.87-.84-1.87-1.87ZM781.68,117.15h13.76V30.59h-12.87c-8.29,0-15.43,1.78-21.42,5.33-5.99,3.55-10.62,8.43-13.87,14.65-3.26,6.22-4.88,13.39-4.88,21.53,0,8.58,1.33,16.28,4,23.08,2.66,6.81,6.88,12.17,12.65,16.09,5.77,3.92,13.32,5.88,22.64,5.88h0ZM814.75,117.15h13.76c9.32,0,16.87-1.96,22.64-5.88,5.77-3.92,9.99-9.28,12.65-16.09,2.66-6.8,4-14.5,4-23.08s-1.63-15.31-4.88-21.53c-3.26-6.21-7.88-11.1-13.87-14.65-5.99-3.55-13.13-5.33-21.42-5.33h-12.87v86.56h0Z"/>
                 <path class="st0" d="M991.49,170.26c-16.34,0-30-3.49-40.99-10.47s-19.27-16.56-24.84-28.74c-5.57-12.17-8.35-30.63-8.35-45.93s2.78-33.73,8.35-45.91c5.57-12.18,13.85-21.75,24.84-28.74,10.99-6.98,24.65-10.47,40.99-10.47s29.96,3.49,40.87,10.47,19.16,16.56,24.73,28.74c5.57,12.18,8.35,30.46,8.35,45.91s-2.78,33.75-8.35,45.93-13.81,21.76-24.73,28.74c-10.91,6.98-24.54,10.47-40.87,10.47ZM991.49,152.66c12.47,0,22.72-2.86,30.74-8.58s13.92-13.33,17.71-22.83c3.79-9.5,5.68-24.69,5.68-36.13,0-8.61-1.08-21.22-3.23-28.87-2.15-7.65-5.46-14.37-9.91-20.16-4.46-5.79-10.1-10.32-16.93-13.59-6.83-3.26-14.85-4.9-24.06-4.9-12.33,0-22.54,2.9-30.63,8.69-8.1,5.79-14.11,13.44-18.04,22.94-3.94,9.51-5.9,24.45-5.9,35.88s1.93,26.4,5.79,35.9,9.84,17.15,17.93,22.94c8.09,5.79,18.38,8.69,30.85,8.69v.02Z"/>

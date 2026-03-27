@@ -26,30 +26,40 @@
     }
 }
 
-@keyframes sliderWideImageShake {
+@keyframes shake {
   0% {
     transform: scale(1.1) translateX(0);
   }
-
   20% {
     transform: scale(1.1) translateX(-5px);
   }
-
   40% {
     transform: scale(1.1) translateX(3px);
   }
-
   60% {
     transform: scale(1.1) translateX(-2px);
   }
-
   80% {
     transform: scale(1.1) translateX(1px);
   }
-
   100% {
     transform: scale(1.1) translateX(0);
   }
+}
+
+@keyframes bounce_left {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    80% {transform: translateX(0px);}
+    87% {transform: translateX(5px);}
+    94% {transform: translateX(0px);}
+    97% {transform: translateX(2px);}
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
 
 html {

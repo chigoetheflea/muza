@@ -69,7 +69,7 @@
     transform: scale(1.1);
 
     &--animated {
-        animation: sliderWideImageShake 0.45s ease-out;
+        animation: shake 0.45s ease-out;
     }
 }
 

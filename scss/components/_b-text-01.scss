@@ -13,16 +13,21 @@
 
 .b-text-01__left {
     padding-right: $pdd-side;
-    border-right: 1px solid $gray;
 }
 
 .b-text-01__right {
     flex-grow: 1;
     padding-left: $pdd-side;
+    border-left: 1px solid $gray;
+    opacity: 0;    
 
     &--big-text {
         font-weight: 350;
         font-size: 40px;
         line-height: 1.25;
     }
+}
+
+.b-text-01__right.animated--complited {
+    animation: bounce_left 1s ease-out forwards;
 }

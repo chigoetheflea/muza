@@ -9,6 +9,7 @@
     background-color: $white;
     border-radius: 50px;
     border: 1px solid $gray;
+    opacity: 0;
 }
 
 .empty-card__title {
@@ -20,4 +21,25 @@
     flex-direction: column;
     gap: 20px;
     align-items: flex-start;
+}
+
+@keyframes bubble {
+    0% {
+        transform: scale(0.90);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.02);
+    }
+    90% {
+        transform: scale(0.97);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.empty-card.animated--complited {
+    animation: bubble 0.5s ease-out forwards;
 }

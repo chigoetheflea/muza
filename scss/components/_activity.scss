@@ -1,7 +1,13 @@
 .activity {
     margin-top: $section-margin + $pdd-top-bottom;
+    overflow: hidden;
 }
 
 .activity__slider {
     margin-top: $pdd-top-bottom;
+    border-top: 1px solid $gray;    
+}
+
+.activity__wrapper {
+   overflow: hidden;
 }
