@@ -1,0 +1,18 @@
+.padding-side {
+    padding-left: $pdd-side;
+    padding-right: $pdd-side;    
+}
+
+@media (width <= $bp-560) {
+    .padding-side {
+        padding-left: $pdd-side-medium;
+        padding-right: $pdd-side-medium;
+    }
+}
+
+@media (width <= $bp-360) {
+    .padding-side {
+        padding-right: $pdd-side-small;
+        padding-left: $pdd-side-small;
+    }
+}

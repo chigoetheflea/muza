@@ -1,0 +1,73 @@
+.title {
+    padding: 0;
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-wrap: balance;
+    text-transform: uppercase;
+
+    &--tiny {
+        font-size: 24px;
+        line-height: 1.25;
+        text-transform: none;
+        font-weight: 350;
+    }
+
+    &--small {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    &--regular {
+        font-size: 48px;
+        line-height: 1.05;
+    }
+
+    &--big {
+        font-size: 64px;
+        line-height: 1;
+        line-height: 1.1;
+        font-weight: 250;
+    }
+
+    &--regcase {
+        text-transform: none;
+    }
+
+    &--center {
+        text-align: center;
+    }
+}
+
+@media (width <= $bp-1200) {
+    .title {
+        &--small {
+            font-size: 28px;
+        }
+    }
+}
+
+@media (width <= $bp-560) {
+    .title {
+        &--big {
+            font-size: 48px;
+        }
+    }
+}
+
+@media (width <= $bp-360) {
+    .title {
+        &--small {
+            font-size: 22px;
+            line-height: 1.25;
+        }
+
+        &--regular {
+            font-size: 36px;
+        }
+
+        &--big {
+            font-size: 36px;
+        }
+    }
+}

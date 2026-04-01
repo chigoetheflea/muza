@@ -11,3 +11,9 @@
 .activity__wrapper {
    overflow: hidden;
 }
+
+@media (width <= $bp-560) {
+    .activity {
+        margin-top: $pdd-top-bottom;
+    }
+}

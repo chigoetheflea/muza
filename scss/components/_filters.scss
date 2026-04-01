@@ -1,0 +1,19 @@
+.filters__wrapper {
+    display: flex;
+    flex-wrap: wrap;    
+    gap: 4px 6px;
+    padding-top: 10px;    
+    padding-bottom: 10px;
+    
+    border-top: 1px solid $gray;    
+    border-bottom: 1px solid $gray;
+}
+
+.filters__button--active {
+    background-color: $rust !important;
+    border-color: $rust !important;
+    color: $gray !important;
+    transform: unset !important;
+    cursor: default !important;
+    outline: none !important;
+}

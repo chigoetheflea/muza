@@ -7,3 +7,17 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 10px;
 }
+
+@media (width <= $bp-990) {
+    .b-img-grid {
+        grid-template-areas: unset;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (width <= $bp-560) {
+    .b-img-grid {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -3,7 +3,7 @@ const ANIMATED_CLASS = `animated--complited`;
 const DEFAULT_OFFSET = 100;
 
 const getRootMargin = (offset) => {
-  return `0px 0px -${offset}px 0px`;
+ return `0px 0px ${-1*offset}px 0px`;
 };
 
 const initScrollAnimation = () => {
@@ -26,7 +26,7 @@ const initScrollAnimation = () => {
       {
         root: null,
         rootMargin: getRootMargin(offset),
-        threshold: 0,
+        threshold: 0.2,
       }
     );
 

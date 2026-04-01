@@ -5,9 +5,9 @@ const SLIDER = `.js-slider-line`;
 const SLIDER_PREV = `.js-slider-prev`;
 const SLIDER_NEXT = `.js-slider-next`;
 
-const SLIDES_PER_VIEW_MOBILE = 1.15;
-const SLIDES_PER_VIEW_TABLET = 2.15;
-const SLIDES_PER_VIEW_DESKTOP = 3.15;
+const SLIDES_PER_VIEW_MOBILE = 1;
+const SLIDES_PER_VIEW_TABLET = 2;
+const SLIDES_PER_VIEW_DESKTOP = 3;
 const SLIDES_PER_VIEW_HD = 4;
 
 const SLIDES_PER_GROUP = 1;
@@ -18,7 +18,7 @@ const SPACE_BETWEEN_DESKTOP = 0;
 const SPACE_BETWEEN_HD = 0;
 
 const BREAKPOINT_TABLET = 768;
-const BREAKPOINT_DESKTOP = 1024;
+const BREAKPOINT_DESKTOP = 1200;
 const BREAKPOINT_HD = 1440;
 
 const SLIDE_SPEED = 700;

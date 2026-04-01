@@ -10,6 +10,10 @@
     background-color: $gray;
     border-radius: 12px;
 
+    &--border {
+        border: 1px solid $rust;
+    }
+
     a, span {
         padding: 5px 5px
     }
@@ -29,3 +33,19 @@
     }
 }
 
+@media (width <= $bp-1024) {
+    .lang {
+        flex-direction: column;
+        gap: 0;
+        padding: 0;
+        width: 60px;
+        font-size: 14px;
+    }
+}
+
+
+@media (width <= $bp-360) {
+    .lang {
+        width: 50px;
+    }
+}

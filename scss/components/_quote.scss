@@ -1,0 +1,13 @@
+.quote {
+    font-size: 36px;
+    line-height: 1.25;
+    font-weight: 300;
+    text-wrap: balance;
+    font-style: italic !important;
+}
+
+@media (width <= $bp-1440) {
+    .quote {
+        font-size: 24px;
+    }
+}

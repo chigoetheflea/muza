@@ -1,0 +1,251 @@
+.founder__about {
+    border-bottom: 1px solid $gray;
+}
+
+.founder__about-wrapper {
+    display: flex;
+    margin-top: $section-margin;
+}
+
+.founder__about-right {
+    width: 30%;
+}
+
+.founder__title {
+    font-weight: 250;
+    margin-left: -4px;
+}
+.founder__about-left {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.founder__subtitle {
+    margin-top: 15px;
+    padding-right: $pdd-side;
+    font-weight: 400;
+}
+
+.founder__short-bio {
+    position: relative;
+    padding: 15px 10% 15px 0;
+    margin-top: 30px;
+    text-wrap: balance;
+
+    &::after,
+    &::before {
+        position: absolute;
+        right: 0;
+
+        width: calc(100% + $pdd-side);
+        height: 1px;
+        
+        background-color: $gray;
+        content: '';
+    }
+
+    &::before {
+        top: 0;
+    }
+
+    &::after {
+        bottom: 0;
+    }
+}
+
+.founder__quote {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding: 30px $pdd-side 30px 0;
+}
+
+.founder__bio-wrapper {
+    display: flex;
+    margin-top: $section-margin;
+    border-bottom: 1px solid $gray;
+}
+
+.founder__b-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    &--row {
+        flex-direction: row;
+        width: 100%;
+
+    }
+    
+    &--b-half {
+        .founder__b-text {
+            width: 50%;
+        }        
+    }
+
+    &--b-third {
+        .founder__b-text {
+            width: 33.33%;
+        }
+    }
+}
+
+.founder__b-title {
+    padding-bottom: 10px;
+    padding-left: $pdd-side;
+    padding-right: $pdd-side;
+    border-bottom: 1px solid $gray;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    span {
+        display: inline-block;
+        font-size: 16px;
+        line-height: 1;
+        transform: translateY(-5px);        
+    }
+
+    br {
+        display: inline-block !important;
+    }
+}
+
+.founder__b-text {
+    flex-grow: 1;
+    padding: $pdd-top-bottom $pdd-side;
+    container-type: inline-size;
+
+    &--right {
+        border-left: 1px solid $gray;
+    }
+
+    span {
+        display: inline-block;
+        margin-left: -2px;
+        margin-bottom: 10px;
+        font-size: 32px;
+        line-height: 1;        
+    }
+}
+
+.founder__awards,
+.founder__awards-world {
+    margin-top: $section-margin;
+    border-bottom: 1px solid $gray;    
+}
+
+.founder__portrait {
+    &.animated--complited {
+        animation: bounce_bottom 0.5s ease-out forwards;
+    }
+}
+
+@media (width <= $bp-1024) {
+    .founder__bio-wrapper {
+        flex-direction: column;
+    }
+
+    .founder__b-text-wrapper {
+        width: 100%;
+
+        &--row {
+            flex-direction: column;
+        }
+
+        &--b-half {
+            .founder__b-text {
+                width: 100%;
+            }
+        }
+    }
+
+    .founder__b-text {
+        &--right {
+            border-left: none;
+        }
+    }
+
+    .founder__bio {
+        border-bottom: 1px solid $gray;
+    }
+
+    .founder__projects {
+        margin-top: $section-margin;
+    }
+
+    .founder__awards {
+        .founder__b-text {
+            &:first-of-type {
+                padding-bottom: 0;
+            }
+
+            &:last-of-type {
+                padding-top: 10px;
+            }
+        }
+    }
+
+    .founder__awards-world {
+        .founder__b-text {
+            & + .founder__b-text {
+                padding-top: 0px;
+            }
+        }
+    }
+}
+
+@media (width <= $bp-990) {
+    .founder__about-wrapper {
+        flex-direction: column;
+    }
+
+    .founder__about-left,
+    .founder__about-right {
+        width: 100%;
+    }
+
+    .founder__about-left {
+        order: 1;
+        margin-top: 30px;
+    }
+    
+    .founder__portrait {
+        max-width: 500px;
+    }
+
+    .founder__short-bio {
+        &::before,
+        &::after {
+            right: -1 * $pdd-side;
+            width: calc(100% + 2 * $pdd-side);
+        }
+    }
+
+    .founder__short-bio,
+    .founder__quote {
+        padding-right: 0;
+    }
+}
+
+@media (width <= $bp-560) {
+    .founder__b-text {
+        padding: $pdd-top-bottom $pdd-side-medium;
+    }
+
+    .founder__b-title {
+        padding-left: $pdd-side-medium;
+        padding-right: $pdd-side-medium;
+    }
+}
+
+@media (width <= $bp-360) {
+    .founder__b-text {
+        padding: $pdd-top-bottom $pdd-side-small;
+    }
+
+    .founder__b-title {
+        padding-left: $pdd-side-small;
+        padding-right: $pdd-side-small;
+    }
+}

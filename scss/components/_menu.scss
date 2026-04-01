@@ -41,6 +41,7 @@
         padding: 14px 16px;
 
         text-decoration: none;
+        text-wrap: nowrap;
         color: $gray;
         font-size: 20px;
         line-height: 1;
@@ -72,3 +73,228 @@
     }
 }
 
+.menu__control {
+    display: none;
+}
+
+.menu__button {
+    svg {
+        display: none;
+    }
+}
+
+@media (width <= $bp-1440) {
+    .menu {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        &--inversed {
+            justify-content: flex-start;
+
+            .menu__button {
+                order: 1;
+            }
+        }
+    }
+
+    .menu__lang {
+        order: 1;
+    }    
+}
+
+:root {
+    --menu-height: 300px;
+    --menu-transition-delay: 0.2s;
+}
+
+@media (width <= $bp-1024) {    
+    .menu--top {
+        position: fixed;
+        top: 0;
+        right: 0;
+        
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0;
+        width: 100%;
+        padding: $pdd-top-bottom $pdd-side; 
+
+        pointer-events: none;
+        
+        * {
+            pointer-events: auto;
+        }
+
+        .menu__wrapper {
+            flex-direction: column;
+            width: 100%;
+            height: 0;
+
+            border: 1px solid $gray;
+            opacity: 0;
+            pointer-events: none;
+            overflow: hidden;  
+            transition: 
+                height ease-out var(--menu-transition-delay),
+                opacity ease var(--menu-transition-delay); 
+            
+            a {
+                width: 100%;
+            }
+
+            li:first-of-type a,
+            li:last-of-type a,
+            a {
+                padding: 12px 16px;
+            }
+        }
+
+        .menu__wrapper--active {
+            height: var(--menu-height); 
+            margin-top: 10px;         
+            opacity: 1;
+            pointer-events: auto;  
+        }
+
+        .menu__button,
+        .menu__lang {
+            margin-top: 10px;
+        }
+
+        .menu__button {
+            padding: 0;
+            width: 60px;
+            height: 50px;
+            border: 1px solid $gray;
+
+            span {
+                display: none;
+            }
+
+            svg {
+                display: block;
+                width: 36px;
+                height: auto;
+                stroke-width: 2px;
+                fill: none;
+            }
+        }
+    }
+
+    .menu__control {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 50px;
+        padding: 10px;
+        margin: 0;
+
+        color: $gray;      
+        
+        border-radius: 12px;
+        background-color: $white;
+        border: 1px solid $gray;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            background-color: $rust;
+        }
+
+        &:active {
+            transform: scale(0.94);
+        }
+
+        &--close {
+            .menu__burger {
+                background-color: transparent;
+
+                &::after {
+                    transform: rotate(45deg);
+                    bottom: unset;
+                }
+
+                &::before {
+                    transform: rotate(-45deg);
+                    top: unset;
+                }
+            }
+        }
+    }
+
+    .menu__burger {
+        position: relative;
+        background-color: $gray;
+        width: 100%;
+        height: 4px;
+
+        &::after,
+        &::before {
+            @include transition;
+
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $gray;
+            content: '';
+        }
+
+        &::after {
+            bottom: -8px;
+        }
+
+        &::before {
+            top: -8px;
+        }
+    }    
+}
+
+@media (width <= $bp-990) {
+    .menu--inversed {
+        justify-content: center;
+    }
+}
+
+@media (width <= $bp-768) {
+    .menu--inversed {
+        .menu__wrapper {
+            flex-wrap: wrap;
+            padding: 10px 50px;
+
+            a {
+                border-radius: 12px;
+            }
+        }        
+    }
+}
+
+@media (width <= $bp-560) {
+    .menu--top {
+        padding-left: $pdd-side-medium;
+        padding-right: $pdd-side-medium;
+    }    
+}
+
+@media (width <= $bp-360) {
+    .menu--top {
+        padding-left: $pdd-side-small;
+        padding-right: $pdd-side-small;
+    }
+
+    .menu__control {
+        width: 50px;
+        height: 40px;
+    }
+
+    .menu--top .menu__button {
+        width: 50px;
+        height: 40px;
+
+        svg {
+            width: 28px;
+            stroke-width: 3px;
+        }
+    }
+}

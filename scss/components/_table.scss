@@ -1,0 +1,43 @@
+.table {
+    width: 100%;
+
+    td:first-of-type {
+        width: 20%;
+        font-weight: 700;
+        font-style: italic !important;
+    }
+
+    td:last-of-type {
+        padding-left: 15px;
+    }
+}
+
+@container (max-width: 600px) {
+    .table {
+        td:first-of-type {
+            width: 30%;
+        }
+    }
+}
+
+@media (width <= $bp-480) {
+    .table {
+        td {
+            display: block;
+            width: 100% !important;    
+        
+            &:last-of-type {
+                padding-left: 0;
+            }
+        }
+
+        tr {
+            display: block;
+        }
+
+        tr + tr {
+            margin-top: 10px;
+        }
+    }
+}
+

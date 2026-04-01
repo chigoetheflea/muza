@@ -29,5 +29,48 @@
 }
 
 .b-text-01__right.animated--complited {
-    animation: bounce_left 1s ease-out forwards;
+    animation: bounce_left 0.75s ease-out forwards;
+}
+
+@media (width <= $bp-1440) {
+    .b-text-01__right--big-text {
+        font-size: 36px;
+    }
+}
+
+@media (width <= $bp-1024) {
+    .b-text-01__right--big-text {
+        font-size: 28px;
+    }
+}
+
+@media (width <= $bp-990) {
+    .b-text-01 {
+        flex-direction: column;
+    }
+
+    .b-text-01__right {
+        padding-left: 0;
+        border: none;
+    }
+
+    .b-text-01__left {
+        padding-right: 0;
+    }
+}
+
+@media (width <= $bp-560) {
+    .b-text-01__right.animated--complited {
+        animation-duration: 0.5s;
+    }
+}
+
+@media (width <= $bp-360) {
+    .b-text-01__right--big-text {
+        font-size: 24px;
+    }
+
+    .b-text-01__right {
+        padding-top: 0;
+    }
 }

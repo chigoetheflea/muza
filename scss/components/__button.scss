@@ -18,11 +18,19 @@
     border-radius: 12px;
     border: none;
     cursor: pointer; 
+
+    svg {
+        stroke: $gray;
+    }
     
     &:hover,
     &:focus {
         background-color: $gray;
         color: $white;
+
+        svg {
+            stroke: $white;
+        }
     }
 
     &:active {
@@ -58,5 +66,22 @@
         font-size: 24px;
         line-height: 1;
         padding: 14px 25px;
+    }
+
+    &--white-hover {
+        &:hover {
+            background-color: $white;
+            color: $gray;
+            outline-color: $rust;
+
+            svg {
+                stroke: $gray;
+            }
+        }
+
+        &:active {
+            background-color: $white;
+            color: $rust;
+        }
     }
 }

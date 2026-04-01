@@ -1,0 +1,46 @@
+.projects {
+    position: relative;
+    padding-top: $section-margin + $pdd-top-bottom;
+    padding-bottom: $pdd-top-bottom;
+
+    border-bottom: 1px solid $gray;
+    will-change: background-position;
+    overflow: hidden;
+}
+
+.projects__grid {
+    position: relative;
+    z-index: 100;
+    margin-top: $pdd-top-bottom;    
+}
+
+.projects__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 80;
+
+    width: 100%;
+    height: 400%;
+ 
+    background: url('/images/muza_pattern_gray_3.webp') 0 0;
+    background-size: auto;
+    animation: bg_move_2 180s linear infinite;
+    pointer-events: none;
+}
+
+.projects__more-notice {
+    margin: 100px 0;
+}
+
+@media (width <= $bp-1024) {
+    .projects__more-notice {
+        margin: 50px 0;
+    }
+}
+
+@media (width <= $bp-560) {
+    .projects {
+        padding-top: $pdd-side-medium;
+    }
+}

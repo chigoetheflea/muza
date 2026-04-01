@@ -1,0 +1,45 @@
+.params__info {
+    position: relative;
+    padding: 7px $pdd-side 7px 0;    
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 400;
+
+    &::after {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        width: calc(100% + $pdd-side);
+        height: 1px;
+
+        background: $gray;
+        content: '';
+    }
+
+    span {
+        font-style: italic !important;
+        margin-left: 5px;
+    }
+}
+
+.params__description {
+    padding: $pdd-top-bottom $pdd-side $pdd-top-bottom 0;
+}
+
+@media (width <= $bp-768) {
+    .params__info {
+        padding-right: 0;
+
+        &::after {
+            right: -1 * $pdd-side;
+            width: calc(100% + 2*$pdd-side);            
+        }
+    }
+}
+
+@media (width <= $bp-480) {
+    .params__info {
+        font-size: 20px;
+    }
+}

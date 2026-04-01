@@ -1,0 +1,65 @@
+.header-inner {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    padding-top: $pdd-top-bottom;
+    
+    background: $gray;
+    overflow: hidden;
+}
+
+.header-inner__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header-inner__logo {
+    width: 180px;
+
+    svg {
+        fill: $rust;
+    }    
+}
+
+.header-inner__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 90;
+
+    width: 100%;
+    height: 4000px;
+
+    background: url('/images/muza_pattern_rust.webp') 0 0;
+    background-size: auto;
+    animation: bg_move_2 180s linear infinite;
+}
+
+.header-inner__breadcrumbs,
+.header-inner__top {
+    position: relative;    
+}
+
+.header-inner__breadcrumbs {
+    z-index: 100;
+}
+
+.header-inner__top {
+    z-index: 200;
+}
+
+@media (width <= $bp-990) {
+    .header-inner__logo {
+        width: 100%;
+        margin-right: 118px;
+    }
+}
+
+@media (width <= $bp-560) {
+    .header-inner__logo {
+        width: 100%;
+        margin-right: 100px;
+    }
+}

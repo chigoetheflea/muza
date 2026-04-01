@@ -1,0 +1,31 @@
+.list {
+    margin: 0;
+    padding: 0 0 0 18px;
+
+    li {
+        padding-left: 10px;
+        text-wrap: balance;
+    }
+
+    &--space {
+        li {
+            margin-bottom: 10px;
+        }
+
+        li:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (width <= $bp-480) {
+    .list {
+        li {
+            margin-bottom: 10px;
+        }
+
+        li:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

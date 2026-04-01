@@ -20,4 +20,20 @@
     svg {
         fill: white;        
     }
+
+    &--inner {
+        width: 180px;
+    }
+}
+
+@media (width <= $bp-1440) {
+    .header-home__top {
+        gap: 50px;
+    }
+}
+
+@media (width <= $bp-768) {
+    .header-home__logo {
+        margin-right: 100px;
+    }
 }

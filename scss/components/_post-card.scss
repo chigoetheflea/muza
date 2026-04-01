@@ -17,6 +17,7 @@
         display: flex;
         flex-direction: column;
         gap: 30px;
+        height: 100%;
 
         color: $gray;
         text-decoration: none;
@@ -39,4 +40,21 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 100%;
+}
+
+@media (width <= $bp-560) {
+    .post-card {
+        a {
+            padding: $pdd-side-medium;
+        }
+    }
+}
+
+@media (width <= $bp-360) {
+    .post-card {
+        a {
+            padding: $pdd-side-small;
+        }
+    }
 }

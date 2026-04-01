@@ -1,0 +1,10 @@
+.img-link {
+    &:hover,
+    &:focus {
+        opacity: $hover-opacity;
+    }
+
+    &:active {
+        opacity: $active-opacity;
+    }
+}
