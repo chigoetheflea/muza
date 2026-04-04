@@ -121,6 +121,23 @@
     }
 }
 
+@keyframes bubble_2 {
+    0% {
+        transform: translateY(-50%) scale(0.90);
+        opacity: 0;
+    }
+    70% {
+        transform: translateY(-50%) scale(1.02);
+    }
+    90% {
+        transform: translateY(-50%) scale(0.97);
+    }
+    100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 1;
+    }
+}
+
 @keyframes fade_in {
     0% {opacity: 0; transform: scale(0.97);}
     90% {opacity: 1; transform: scale(1.01);}
@@ -139,6 +156,15 @@
     100% {
         transform: translateY(10px);
         opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 

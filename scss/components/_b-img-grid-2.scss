@@ -3,6 +3,35 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     gap: 10px;
+
+    &--cols4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 0;      
+    }
+}
+
+@media (width <= $bp-1200) {
+  .b-img-grid-2 {
+    &--cols4 {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -1px;
+
+      & > * {
+        width: 33.33% !important;
+      }
+    }
+  }
+}
+
+@media (width <= $bp-1024) {
+  .b-img-grid-2 {
+    &--cols4 {
+      & > * {
+        width: 50% !important;
+      }
+    }
+  }
 }
 
 @media (width <= $bp-990) {
@@ -14,5 +43,11 @@
 @media (width <= $bp-560) {
   .b-img-grid-2 {
     grid-template-columns: 1fr;
+
+    &--cols4 {
+      & > * {
+        width: 100% !important;
+      }
+    }
   }
 }

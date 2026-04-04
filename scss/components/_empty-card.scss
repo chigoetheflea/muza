@@ -10,6 +10,25 @@
     border-radius: 50px;
     border: 1px solid $gray;
     opacity: 0;
+
+    &--flex {
+        grid-area: unset;
+        align-items: flex-start;
+        padding-left: $pdd-side;
+        border-radius: 0;
+        border: none;
+        border-left: 1px dashed $gray;
+        opacity: 1;
+        background-color: unset;
+    }
+}
+
+.empty-card__inner {
+    padding: 10px 15px;
+    border: 1px solid $gray;
+    border-radius: 20px;
+
+    animation: bounce_bottom 0.5s ease-out forwards;
 }
 
 .empty-card__title {
@@ -27,12 +46,27 @@
     animation: bubble 0.5s ease-out forwards;
 }
 
+@media (width <= $bp-1200) {
+    .empty-card {
+        &--flex {
+            align-items: center;
+            padding: $pdd-top-bottom 0;         
+            flex-grow: 1;               
+        }
+    }
+}
+
 @media (width <= $bp-990) {
     .empty-card {
         grid-area: unset;
         grid-column: span 2 !important;
         padding: 30px;
         border-radius: 30px;
+
+        &--flex {
+            border-radius: 0;
+            display: none;
+        }
 
         br {
             display: none;

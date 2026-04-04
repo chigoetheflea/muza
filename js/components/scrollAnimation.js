@@ -20,6 +20,7 @@ const initScrollAnimation = () => {
           if (!entry.isIntersecting) return;
 
           entry.target.classList.add(ANIMATED_CLASS);
+                    
           currentObserver.unobserve(entry.target);
         });
       },

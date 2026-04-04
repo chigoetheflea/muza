@@ -6,6 +6,8 @@ import {initLineSlider} from './components/sliderLine';
 import {initScrollAnimation} from './components/scrollAnimation';
 import {initMenu} from './components/menu';
 import {initFilters} from './components/caseFilter';
+import {initMap} from './components/map';
+import {initForms} from './components/form';
 
 document.addEventListener(`DOMContentLoaded`, () => {
   initHeroSlider();
@@ -13,4 +15,6 @@ document.addEventListener(`DOMContentLoaded`, () => {
   initScrollAnimation();    
   initMenu();
   initFilters();
+  initMap();
+  initForms();
 });

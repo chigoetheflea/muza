@@ -1,6 +1,10 @@
 .activity {
     margin-top: $section-margin + $pdd-top-bottom;
-    overflow: hidden;
+    overflow: hidden;    
+}
+
+.activity__case {
+    transform: translateX(50px) !important;  
 }
 
 .activity__slider {
@@ -12,8 +16,28 @@
    overflow: hidden;
 }
 
+.activity__static {
+    margin-top: $pdd-top-bottom;
+    border-top: 1px solid $gray;
+    border-bottom: 1px solid $gray;
+}
+
+@media (width <= $bp-1200) {
+    .activity__case {
+        &--static {
+            margin-bottom: -1px;
+            border-bottom: 1px solid $gray;
+            transform: unset !important;
+        }
+    }
+}
+
 @media (width <= $bp-560) {
     .activity {
         margin-top: $pdd-top-bottom;
+    }
+
+    .activity__case {
+        transform: translateX(0) !important;
     }
 }

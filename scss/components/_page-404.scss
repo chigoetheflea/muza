@@ -1,0 +1,34 @@
+.page-404 {
+    position: absolute;
+    z-index: 500;
+    top: 45%;
+    left: $pdd-side;
+    color: $white;    
+}
+
+.page-404__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+@media (width <= $bp-1024) {
+    .page-404 {
+        top: 30%;
+    }
+}
+
+@media (width <= $bp-990) {
+    .page-404 {
+        top: 45%;
+    }
+}
+
+@media (width <= $bp-560) {
+    .page-404 {
+        top: 40%;
+        left: 0;
+        padding: 0 $pdd-side-medium;
+    }
+}

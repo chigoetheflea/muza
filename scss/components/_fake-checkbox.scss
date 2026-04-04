@@ -1,0 +1,63 @@
+.fake-checkbox__title {
+    position: relative;
+    padding: 0 0 0 30px;
+    cursor: pointer;
+
+    &::after,
+    &::before {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        
+        width: 20px;
+        height: 20px;
+        
+        content: '';
+    }
+
+    &::before {
+        border-radius: 7px;
+        border: 1px solid $gray;
+    }
+
+    &::after {
+        @include transition;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 3px;
+
+        font-size: 12px;
+        line-height: 1;
+
+        opacity: 0;
+
+        content: '✓';
+    }
+}
+
+.fake-checkbox__label input:checked 
+    + .fake-checkbox__title {
+        &::after {
+            opacity: 1;
+        }
+    }
+
+.fake-checkbox input:hover,
+.fake-checkbox input:focus {
+    & + .fake-checkbox__title {
+        &::before {
+            border-color: $rust;
+        }
+    }
+}
+
+.fake-checkbox input:active {
+    & + .fake-checkbox__title {
+        &::before {
+            outline: 1px dotted $rust;
+            outline-offset: 3px;
+        }
+    }
+}

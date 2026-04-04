@@ -72,10 +72,6 @@
     border-left: 1px solid $gray;
 }
 
-.slider-line__card {
-    transform: translateX(50px) !important;
-}
-
 @media (width <= $bp-560) {
     .slider-line__card {
         transform: translateX(0) !important;
