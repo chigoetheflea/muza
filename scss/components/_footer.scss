@@ -97,3 +97,11 @@
         }
     }
 }
+
+@media (width <= $bp-990) {
+    .footer {
+        &--404 {
+            display: none;
+        }
+    }
+}

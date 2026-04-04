@@ -76,7 +76,8 @@
     
     border: 1px solid $gray;
     border-top: none;
-    background-color: $white;
+    
+    backdrop-filter: blur($blur);
 }
 
 .project-card__bottom {

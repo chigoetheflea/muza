@@ -8,6 +8,11 @@
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 0;      
     }
+
+    &--cols4-gap {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 10px;
+    }
 }
 
 @media (width <= $bp-1200) {
