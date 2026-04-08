@@ -98,7 +98,7 @@ const initMap = () => {
                 },
                 {
                     iconLayout: `default#image`,
-                    iconImageHref: MARKER_URL,
+                    iconImageHref: THEME?.markerURL ?? MARKER_URL,
                     iconImageSize: [CurrentMarkerSize.width, CurrentMarkerSize.height],
                     iconImageOffset: [
                         -1 * CurrentMarkerSize.width / 2,

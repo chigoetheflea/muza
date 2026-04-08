@@ -23,6 +23,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: $pdd-top-bottom;
 }
 
 .header-inner__logo {
@@ -31,6 +32,29 @@
     svg {
         fill: $rust;
     }    
+
+    &--big {
+        width: 380px;
+    }
+}
+
+.header-inner__logo-small {
+    display: none;
+}
+
+.header-inner__logo-big {
+
+}
+
+.header-inner__bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    
+    overflow: clip;    
 }
 
 .header-inner__bg {
@@ -112,6 +136,10 @@
             stroke-width: 0.7px;            
         }
     }
+
+    .header-inner__top {
+        margin-bottom: 30px;
+    }
 }
 
 @media (width <= $bp-560) {
@@ -140,7 +168,7 @@
     }
 }
 
-@media (width <= $bp-360) {
+@media (width <= $bp-414) {
     .header-inner__error {
         svg {
             stroke-width: 1.5px;            

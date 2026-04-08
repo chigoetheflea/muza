@@ -4,7 +4,9 @@
     display: flex !important;    
     height: auto !important;
     width: 100%;    
+
     border-left: 1px solid $gray;
+    background-color: $rust;
 
     &:focus-within {
         background-color: $rust;
@@ -21,8 +23,9 @@
 
         color: $gray;
         text-decoration: none;
+        
         border-radius: 0;
-        backdrop-filter: blur($blur);
+        background-color: $white;
 
         &:hover,
         &:focus {
@@ -52,10 +55,10 @@
     }
 }
 
-@media (width <= $bp-480) {
+@media (width <= $bp-414) {
     .post-card {
         a {
-            padding: 15px 10px;
+            padding: 15px 15px;
         }
     }
 }

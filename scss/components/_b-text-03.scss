@@ -1,0 +1,64 @@
+.b-text-03 {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;  
+    padding: 6px 15px;
+    
+    border: 1px solid $gray;  
+    border-top: none;
+    transition: padding $transition-delay ease;
+
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+
+        width: 0;
+        height: 100%;
+        background-color: $rust;
+        transition: width $transition-delay ease;
+
+        content: '';
+    }
+
+    &:first-of-type {
+        border-top: 1px solid $gray;
+    }
+
+    &:hover,
+    &:focus {
+        padding-left: 100px;
+
+        &::before {
+            width: 80px;
+        }
+    }
+}
+
+@media (width <= $bp-990) {
+    .b-text-03 {
+        &:hover,
+        &:focus {
+            padding-left: 50px;
+
+            &::before {
+                width: 30px;
+            }
+        }
+    }
+}
+
+@media (width <= $bp-480) {
+    .b-text-03 {
+        &:hover,
+        &:focus {
+            padding-left: 20px;
+
+            &::before {
+                width: 15px;
+            }
+        }
+    }
+}

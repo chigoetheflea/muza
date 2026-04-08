@@ -8,6 +8,10 @@
         display: flex;        
         animation: fade_in 0.3s ease-out 1 forwards;
     }
+
+    &--archive {
+      margin-top: 100px;
+    }
 }
 
 .no-posts__wrapper {

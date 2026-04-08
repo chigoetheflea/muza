@@ -8,7 +8,7 @@
 
     &--tiny {
         font-size: 24px;
-        line-height: 1.25;
+        line-height: 1.4;
         text-transform: none;
         font-weight: 350;
     }
@@ -34,6 +34,10 @@
         text-transform: none;
     }
 
+    &--uppercase {
+        text-transform: uppercase;
+    }
+
     &--center {
         text-align: center;
     }
@@ -47,6 +51,15 @@
     }
 }
 
+@media (width <= $bp-1024) {
+    .title {
+        &--tiny {
+            font-size: 16px;
+            font-weight: 400;
+        }
+    }
+}
+
 @media (width <= $bp-560) {
     .title {
         &--big {
@@ -55,7 +68,16 @@
     }
 }
 
-@media (width <= $bp-360) {
+@media (width <= $bp-480) {
+    .title {
+        &--tiny {
+            font-size: 18px;
+            font-weight: 400;
+        }
+    }
+}
+
+@media (width <= $bp-414) {
     .title {
         &--small {
             font-size: 22px;
@@ -63,7 +85,7 @@
         }
 
         &--regular {
-            font-size: 36px;
+            font-size: 28px;
         }
 
         &--big {

@@ -74,7 +74,7 @@
 
 @media (width <= $bp-560) {
     .slider-line__card {
-        transform: translateX(0) !important;
+        transform: translateX(-1px) !important;
     }
 
     .slider-line__controls {
@@ -98,7 +98,7 @@
     }
 }
 
-@media (width <= $bp-560) {
+@media (width <= $bp-414) {
     .slider-line__arrow {
         height: 60px;
     }

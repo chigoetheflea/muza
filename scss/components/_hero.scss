@@ -2,3 +2,9 @@
     position: relative;
     height: 100vh;
 }
+
+@media (width <= $bp-768) {
+    .hero {
+        height: 80vh;
+    }
+}

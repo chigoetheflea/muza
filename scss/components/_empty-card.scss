@@ -39,6 +39,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin: 50px 0;
     align-items: flex-start;
 }
 
@@ -84,5 +85,11 @@
 @media (width <= $bp-560) {
     .empty-card__wrapper {
         flex-direction: column;
+    }
+}
+
+@media (width <= $bp-414) {
+    .empty-card__title {
+        text-align: center;
     }
 }

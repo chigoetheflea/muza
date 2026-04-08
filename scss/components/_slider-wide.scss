@@ -209,7 +209,17 @@
     }
 }
 
-@media (width <= $bp-360) {
+@media (width <= $bp-414) {
+    .slider-wide__title {
+        font-size: 24px;
+    }
+
+    .slider-wide__info {
+        padding: 10px 15px;
+    }
+}
+
+@media (width <= $bp-414) {
     .slider-wide__info {
         width: calc(100% - 2*$pdd-side-small);
         padding: 10px 15px;

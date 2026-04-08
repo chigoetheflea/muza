@@ -3,15 +3,16 @@ import path from 'path';
 
 export default defineConfig({
   root: '.',
+  base: './',
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '.'), // чтобы использовать @/scss/...
-    }
+      '@': path.resolve(__dirname, '.'),
+    },
   },
 
   server: {
-    open: true
+    open: true,
   },
 
   build: {
@@ -20,19 +21,26 @@ export default defineConfig({
 
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'index.html')
+        main: path.resolve(__dirname, 'index.html'),
       },
       output: {
         entryFileNames: 'js/[name].js',
         chunkFileNames: 'js/[name].js',
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
-            return 'css/[name][extname]';
+          const fileName = assetInfo.name || ``;
+
+          if (fileName.endsWith(`.css`)) {
+            return `css/[name][extname]`;
           }
-          return 'assets/[name][extname]';
-        }
-      }
-    }
+
+          if (/\.(png|jpe?g|svg|gif|webp|avif)$/i.test(fileName)) {
+            return `images/[name][extname]`;
+          }
+
+          return `assets/[name][extname]`;
+        },
+      },
+    },
   },
 
   css: {
@@ -42,8 +50,8 @@ export default defineConfig({
         additionalData: `
           @import "@/scss/utils/variables";
           @import "@/scss/utils/mixins";
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 });

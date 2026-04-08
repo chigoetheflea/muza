@@ -1,0 +1,116 @@
+.b-text-02 {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+
+    width: 100%;
+    min-height: 33vh;
+    padding: $pdd-top-bottom $pdd-side;
+
+    border: 1px solid $gray;
+    overflow: hidden;
+
+    &--rounded {
+        border-radius: 50px;
+    }
+
+    &--vawe {
+        .b-text-02__text,
+        .b-text-02__title {
+            background: none;
+            backdrop-filter: blur(5px);
+        }
+    }
+
+    &--pic {
+        min-height: 75vh;
+        border: none;
+        background-position: 50% 50%;        
+        overflow: hidden;
+    }
+}
+
+.b-text-02__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 80;
+
+    width: 100%;
+    height: 400%;
+    min-height: 3000px;
+ 
+    background: url('/images/muza_pattern_gray_3.webp') 0 0;
+    background-size: auto;
+    animation: bg_move_2 180s linear infinite;
+    pointer-events: none;
+}
+
+.b-text-02__text,
+.b-text-02__title {
+    position: relative;
+    z-index: 100;
+    padding: 5px 8px;
+    background-color: $white;
+    border-radius: 10px;
+}
+
+.b-text-02__text {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.b-text-02__bg-img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+}
+
+@media (width <= $bp-1024) {
+    .b-text-02 {
+        padding: 50px 20px;
+
+        &--rounded {
+            border-radius: 30px;
+        }
+    }
+}
+
+@media (width <= $bp-990) {
+    .b-text-02 {
+        padding: 15px 20px;
+        min-height: 300px;
+
+        &--pic {
+            height: 500px;
+        }
+    }
+}
+
+@media (width <= $bp-560) {
+    .b-text-02__text {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+}
+
+@media (width <= $bp-414) {
+    .b-text-02 {
+        padding: 15px 10px;
+
+        &--pic {
+            height: 400px;
+        }
+    }
+
+    .b-text-02__text {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

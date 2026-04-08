@@ -48,7 +48,7 @@
     }
 }
 
-@media (width <= $bp-360) {
+@media (width <= $bp-414) {
     .posts-archive__inner {
         &::after {
             right: $pdd-side-small;

@@ -5,13 +5,15 @@ const AGREE = `.js-agree`;
 const SUBMIT = `.js-submit`;
 const RESULT = `.js-result`;
 
-const FORM_URL = ``;
+const FORM_URL = window.THEME?.mailer ?? ``;
+const FORM_ACTION = `send_contact_form`;
 
 const STATUS_ACTIVE_CLASS = `form__message--active`;
 const STATUS_ERROR_CLASS = `form__message--error`;
 const STATUS_SUCCESS_CLASS = `form__message--success`;
 
 const SUBMIT_DISABLED_CLASS = `form__button--disabled`;
+const SUBMIT_SENDING_CLASS = `form__button--sending`;
 
 const RESULT_ACTIVE_CLASS = `form__result--active`;
 const RESULT_ERROR_CLASS = `form__result--error`;
@@ -26,15 +28,14 @@ const MASK_PHONE_TG = `phone-tg`;
 
 const PHONE_MIN_DIGITS = 6;
 
-const MESSAGE_REQUIRED = `Заполните поле`;
-const MESSAGE_EMAIL = `Введите корректный email`;
-const MESSAGE_PHONE_TG = `Введите телефон или @telegram`;
-const MESSAGE_SUCCESS = `✓`;
-const MESSAGE_FORM_SUCCESS = `Форма успешно отправлена`;
-const MESSAGE_FORM_ERROR = `Не удалось отправить форму. Попробуйте позже`;
-const MESSAGE_FORM_INVALID = `Проверьте заполнение формы`;
-
-const SUBMIT_SENDING_CLASS = `form_button--sending`;
+let MESSAGE_REQUIRED = `Заполните поле`;
+let MESSAGE_EMAIL = `Введите корректный email`;
+let MESSAGE_PHONE_TG = `Введите телефон или @telegram`;
+let MESSAGE_SUCCESS = `✓`;
+let MESSAGE_FORM_SUCCESS = `Форма успешно отправлена`;
+let MESSAGE_FORM_ERROR = `Не удалось отправить форму. Попробуйте позже`;
+let MESSAGE_FORM_INVALID = `Проверьте заполнение формы`;
+let MESSAGE_FORM_CONFIG_ERROR = `Не настроен адрес обработчика формы`;
 
 const PHONE_TG_REGEXP = /^(?:\+?[0-9\s\-()]{6,20}|@[A-Za-z0-9_]{5,32})$/;
 const EMAIL_REGEXP = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -75,7 +76,7 @@ const setStatus = (statusNode, message, isError = false) => {
     statusNode.classList.add(STATUS_ACTIVE_CLASS);
 
     if (isError) {
-        statusNode.classList.remove(STATUS_SUCCESS_CLASS);        
+        statusNode.classList.remove(STATUS_SUCCESS_CLASS);
         statusNode.classList.add(STATUS_ERROR_CLASS);
 
         return;
@@ -83,6 +84,17 @@ const setStatus = (statusNode, message, isError = false) => {
 
     statusNode.classList.remove(STATUS_ERROR_CLASS);
     statusNode.classList.add(STATUS_SUCCESS_CLASS);
+};
+
+const changeTranslate = () => {
+    MESSAGE_REQUIRED = `Fill the field`;
+    MESSAGE_EMAIL = `Enter correct email`;
+    MESSAGE_PHONE_TG = `Enter your phone number or @telegram`;
+    MESSAGE_SUCCESS = `✓`;
+    MESSAGE_FORM_SUCCESS = `The form has been successfully submitted`;
+    MESSAGE_FORM_ERROR = `The form could not be submitted. Try again later`;
+    MESSAGE_FORM_INVALID = `Check the form completion`;
+    MESSAGE_FORM_CONFIG_ERROR = `The form handler address is not configured`;
 };
 
 const normalizeValue = (value) => (value || ``).trim();
@@ -101,12 +113,10 @@ const validateMask = (value, maskType) => {
     }
 
     if (maskType === MASK_PHONE_TG) {
-        // telegram
         if (value.startsWith(`@`)) {
             return PHONE_TG_REGEXP.test(value);
         }
 
-        // телефон → считаем только цифры
         const digits = value.replace(/\D/g, ``);
 
         if (digits.length < PHONE_MIN_DIGITS) {
@@ -237,11 +247,13 @@ const setResult = (form, message, isError = false) => {
     resultNode.classList.add(RESULT_SUCCESS_CLASS);
 
     setTimeout(() => {
-        resultNode.classList.remove(RESULT_SUCCESS_CLASS);
-        resultNode.classList.remove(RESULT_ACTIVE_CLASS);
-        resultNode.innerText = ``;
-    },
-    RESULT_SHOW_TIME);
+        resultNode.classList.remove(
+            RESULT_ACTIVE_CLASS,
+            RESULT_SUCCESS_CLASS,
+            RESULT_ERROR_CLASS,
+        );
+        resultNode.textContent = ``;
+    }, RESULT_SHOW_TIME);
 };
 
 const setSubmitSending = (form, isSending) => {
@@ -254,26 +266,113 @@ const setSubmitSending = (form, isSending) => {
     submitButton.classList.toggle(SUBMIT_SENDING_CLASS, isSending);
 };
 
-const getFormData = (form) => new FormData(form);
+const clearFormStatuses = (form) => {
+    const fields = form.querySelectorAll(FIELD);
 
-const sendForm = (form) => new Promise((resolve, reject) => {
-    const formData = getFormData(form);
-    const xhr = new XMLHttpRequest();
+    fields.forEach((field) => {
+        clearStatus(getFieldStatus(field));
+    });
+};
 
-    xhr.open(`POST`, FORM_URL, true);
+const applyServerFieldErrors = (form, errors = {}) => {
+    const fields = form.querySelectorAll(FIELD);
 
-    xhr.onload = () => {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            resolve(xhr.responseText);
+    fields.forEach((field) => {
+        const fieldName = field.getAttribute(`name`);
+        const statusNode = getFieldStatus(field);
 
+        if (!fieldName || !errors[fieldName]) {
             return;
         }
 
-        reject(new Error(`Request failed with status ${xhr.status}`));
+        setStatus(statusNode, errors[fieldName], true);
+    });
+};
+
+const getFormData = (form) => {
+    const formData = new FormData(form);
+
+    formData.append(`action`, FORM_ACTION);
+
+    return formData;
+};
+
+const parseJsonSafely = (text) => {
+    try {
+        return JSON.parse(text);
+    } catch (error) {
+        return null;
+    }
+};
+
+const logFormData = (formData) => {
+    for (const [key, value] of formData.entries()) {
+        console.log(`FormData: ${key} =`, value);
+    }
+};
+
+const sendForm = (form) => new Promise((resolve, reject) => {
+    if (!FORM_URL) {
+        reject(new Error(MESSAGE_FORM_CONFIG_ERROR));
+        return;
+    }
+
+    const formData = getFormData(form);
+    const xhr = new XMLHttpRequest();
+
+    logFormData(formData);
+
+    xhr.open(`POST`, FORM_URL, true);
+    xhr.setRequestHeader(`X-Requested-With`, `XMLHttpRequest`);
+    xhr.timeout = 15000;
+
+    xhr.onload = () => {
+        const responseText = xhr.responseText;
+        const responseJson = parseJsonSafely(responseText);
+
+        console.log(`Form request status:`, xhr.status);
+        console.log(`Form response text:`, responseText);
+        console.log(`Form response json:`, responseJson);
+
+        if (xhr.status < 200 || xhr.status >= 300) {
+            reject({
+                message: responseJson?.message || `Request failed with status ${xhr.status}`,
+                errors: responseJson?.errors || null,
+            });
+            return;
+        }
+
+        if (!responseJson) {
+            reject({
+                message: `Сервер вернул не JSON`,
+                errors: null,
+            });
+            return;
+        }
+
+        if (responseJson.success !== true) {
+            reject({
+                message: responseJson.message || MESSAGE_FORM_ERROR,
+                errors: responseJson.errors || null,
+            });
+            return;
+        }
+
+        resolve(responseJson);
     };
 
     xhr.onerror = () => {
-        reject(new Error(`Network error`));
+        reject({
+            message: MESSAGE_FORM_ERROR,
+            errors: null,
+        });
+    };
+
+    xhr.ontimeout = () => {
+        reject({
+            message: `Сервер не ответил вовремя`,
+            errors: null,
+        });
     };
 
     xhr.send(formData);
@@ -317,7 +416,6 @@ const handleSubmit = async (event) => {
 
     if (!isAgreeAccepted(form)) {
         updateSubmitState(form);
-
         return;
     }
 
@@ -325,7 +423,6 @@ const handleSubmit = async (event) => {
 
     if (!isValid) {
         setResult(form, MESSAGE_FORM_INVALID, true);
-
         return;
     }
 
@@ -336,20 +433,21 @@ const handleSubmit = async (event) => {
 
         setSubmitSending(form, true);
 
-        await sendForm(form);
+        const response = await sendForm(form);
 
-        setResult(form, MESSAGE_FORM_SUCCESS, false);
+        console.log(`Form success:`, response);
+
+        setResult(form, response.message || MESSAGE_FORM_SUCCESS, false);
         form.reset();
-
-        const fields = form.querySelectorAll(FIELD);
-
-        fields.forEach((field) => {
-            const statusNode = getFieldStatus(field);
-
-            clearStatus(statusNode);
-        });
+        clearFormStatuses(form);
     } catch (error) {
-        setResult(form, MESSAGE_FORM_ERROR, true);
+        console.error(`Form error:`, error);
+
+        if (error?.errors) {
+            applyServerFieldErrors(form, error.errors);
+        }
+
+        setResult(form, error?.message || MESSAGE_FORM_ERROR, true);
     } finally {
         setSubmitSending(form, false);
         updateSubmitState(form);
@@ -358,6 +456,11 @@ const handleSubmit = async (event) => {
 
 const initSingleForm = (form) => {
     const agreeCheckboxes = getAgreeCheckboxes(form);
+    const isEnglish = form.dataset.lang === `en`;
+
+    if (isEnglish) {
+        changeTranslate();
+    }
 
     updateSubmitState(form);
     clearResult(form);
@@ -377,6 +480,9 @@ const initForms = () => {
     if (!forms.length) {
         return;
     }
+
+    console.log(`THEME:`, window.THEME);
+    console.log(`FORM_URL:`, FORM_URL);
 
     forms.forEach((form) => {
         initSingleForm(form);

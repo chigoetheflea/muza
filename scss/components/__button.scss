@@ -85,3 +85,9 @@
         }
     }
 }
+
+@media (width <= $bp-414) {
+    .button {
+        white-space: unset;
+    }
+}

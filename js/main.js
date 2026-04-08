@@ -8,8 +8,11 @@ import {initMenu} from './components/menu';
 import {initFilters} from './components/caseFilter';
 import {initMap} from './components/map';
 import {initForms} from './components/form';
+import {initParallax} from './components/parallax';
+import {initLoader} from './components/loader';
 
 document.addEventListener(`DOMContentLoaded`, () => {
+  initLoader();
   initHeroSlider();
   initLineSlider();
   initScrollAnimation();    
@@ -17,4 +20,5 @@ document.addEventListener(`DOMContentLoaded`, () => {
   initFilters();
   initMap();
   initForms();
+  initParallax();
 });

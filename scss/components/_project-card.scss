@@ -112,3 +112,9 @@
         grid-area: unset !important;
     }
 }
+
+@media (width <= $bp-480) {
+    .project-card__info {
+        padding: 10px 15px;
+    }
+}

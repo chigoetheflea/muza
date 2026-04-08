@@ -46,8 +46,9 @@
     }
 }
 
-@media (width <= $bp-360) {
+@media (width <= $bp-414) {
     .more-notice__wrapper {
         font-size: 18px;
+        font-weight: 400;
     }
 }

@@ -1,6 +1,7 @@
 .project-single__case {
     margin-top: $section-margin;
     border-top: 1px solid $gray;
+    border-bottom: 1px solid $gray;
 }
 
 .project-single__wrapper {
@@ -40,10 +41,6 @@
             animation: bounce_bottom 0.5s ease-out forwards;
         }
     }
-}
-
-.project-single__extra {
-    border-top: 1px solid $gray;
 }
 
 @media (width <= $bp-1440) {
@@ -92,7 +89,7 @@
     }
 }
 
-@media (width <= $bp-360) {
+@media (width <= $bp-414) {
     .project-single__title {
         font-size: 24px;
     }

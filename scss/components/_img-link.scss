@@ -1,4 +1,6 @@
 .img-link {
+    display: block;
+    
     &:hover,
     &:focus {
         opacity: $hover-opacity;

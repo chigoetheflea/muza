@@ -25,6 +25,7 @@
     margin-top: 15px;
     padding-right: $pdd-side;
     font-weight: 400;
+    line-height: 1.4;
 }
 
 .founder__short-bio {
@@ -136,8 +137,11 @@
 }
 
 .founder__portrait {
+    opacity: 0;
+
     &.animated--complited {
         animation: bounce_bottom 0.5s ease-out forwards;
+        animation-delay: 0.5s !important;
     }
 }
 
@@ -193,6 +197,10 @@
             }
         }
     }
+
+    .founder__b-title {
+        font-size: 24px;
+    }
 }
 
 @media (width <= $bp-990) {
@@ -236,10 +244,18 @@
     .founder__b-title {
         padding-left: $pdd-side-medium;
         padding-right: $pdd-side-medium;
+        margin-left: 0;
     }
 }
 
-@media (width <= $bp-360) {
+@media (width <= $bp-480) {
+    .founder__b-title {
+        font-size: 24px;
+        font-weight: 400;
+    }
+}
+
+@media (width <= $bp-414) {
     .founder__b-text {
         padding: $pdd-top-bottom $pdd-side-small;
     }
@@ -247,5 +263,5 @@
     .founder__b-title {
         padding-left: $pdd-side-small;
         padding-right: $pdd-side-small;
-    }
+    }    
 }
