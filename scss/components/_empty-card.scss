@@ -19,7 +19,17 @@
         border: none;
         border-left: 1px dashed $gray;
         opacity: 1;
-        background-color: unset;
+        background-color: unset;        
+    }
+
+    &--small {
+        width: 66%;
+        align-self: center;
+        margin: auto;
+
+        border-radius: 30px;
+        border: none;
+        background-color: $rust;
     }
 }
 
@@ -54,6 +64,17 @@
             padding: $pdd-top-bottom 0;         
             flex-grow: 1;               
         }
+    }
+}
+
+@media (width <= $bp-1024) {
+    .empty-card {
+        width: 100%;
+        height: 100%;
+    }
+
+    .empty-card__title {
+        font-size: 24px;
     }
 }
 

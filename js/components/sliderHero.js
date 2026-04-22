@@ -1,9 +1,11 @@
 import Swiper from 'swiper';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 
 const SLIDER = `.js-slider-wide`;
 const SLIDE_IMAGE = `.js-slider-wide-img`;
 const SLIDE_INFO = `.js-slider-wide-info`;
+const SLIDER_PREV = `.js-slider-prev`;
+const SLIDER_NEXT = `.js-slider-next`;
 
 const DOTS_CONTAINER = `.js-slider-dots`;
 const DOT = `.slider-wide__dot`;
@@ -99,11 +101,13 @@ const initHeroSlider = () => {
     const dots = dotsContainer.querySelectorAll(DOT);
     const images = slider.querySelectorAll(SLIDE_IMAGE);
     const infos = slider.querySelectorAll(SLIDE_INFO);
+    const prevButton = slider.querySelector(SLIDER_PREV);
+    const nextButton = slider.querySelector(SLIDER_NEXT);
 
     if (!dots.length) return;
 
     const swiper = new Swiper(slider, {
-      modules: [Autoplay],
+      modules: [Autoplay, Navigation],
       loop: true,
       speed: SLIDE_SPEED,
       autoplay: {
@@ -126,6 +130,10 @@ const initHeroSlider = () => {
         slideChangeTransitionEnd() {
           setActiveSlideState(this);
         },
+      },
+      navigation: {
+        prevEl: prevButton,
+        nextEl: nextButton,
       },
     });
 

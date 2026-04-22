@@ -65,6 +65,10 @@
     }    
 }
 
+.project-card img {
+    border: 1px solid $gray;
+}
+
 .project-card__info {
     @include transition;
 

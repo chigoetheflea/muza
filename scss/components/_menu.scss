@@ -123,7 +123,7 @@
         width: 100%;
         padding: $pdd-top-bottom $pdd-side; 
 
-        pointer-events: none;
+        pointer-events: none !important;
         
         * {
             pointer-events: auto;

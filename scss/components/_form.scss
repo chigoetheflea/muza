@@ -97,6 +97,8 @@
 
     &--active {
         padding: 5px 15px;
+        opacity: 1;
+        animation: bubble_1 0.3s ease-out 1 forwards;
     }
 }
 
