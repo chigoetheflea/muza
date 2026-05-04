@@ -1,7 +1,7 @@
 .params__info {
     position: relative;
     padding: 7px $pdd-side 7px 0;    
-    font-size: 24px;
+    font-size: 20px;
     line-height: 1.5;
     font-weight: 400;
 
@@ -36,10 +36,14 @@
             width: calc(100% + 2*$pdd-side);            
         }
     }
+
+    .params__description {
+        padding-right: 0;
+    }
 }
 
 @media (width <= $bp-480) {
     .params__info {
-        font-size: 20px;
-    }
+        font-size: 18px;
+    }    
 }

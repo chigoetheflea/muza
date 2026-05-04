@@ -1,0 +1,78 @@
+.tabs--disabled {
+    .tabs__controls {
+        display: none;
+    }
+
+    .tabs__content--int {
+        display: none;
+    }
+}
+
+.tabs__content {
+    flex-direction: column;
+    gap: 10px;
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+
+    &--active {
+        display: flex;
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.tabs__controls {
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.tabs__button {    
+    @include transition;
+
+    padding: 14px 15px;
+
+    font-family: inherit;
+    font-weight: 350;
+    white-space: nowrap;
+    line-height: 1;
+    font-size: 20px;
+
+    background-color: $white;
+    border: none;
+    border-bottom: 1px solid $gray;
+    border-radius: 0; 
+    cursor: pointer;   
+
+    &:last-of-type {
+        border-left: 1px solid $gray;
+    }
+
+    &--active {
+        background-color: $gray-light;
+        cursor: default;
+        color: $gray;
+    }
+
+    &:not(&--active) {
+        color: $gray-medium;
+        font-style: italic;
+
+        &:hover,
+        &:focus {
+            background-color: $gray-light;
+        }
+
+        &:active {
+            background-color: $rust;
+        }
+    }
+}
+
+@media (width <= $bp-414) {
+    .tabs__button {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}

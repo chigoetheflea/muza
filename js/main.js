@@ -10,6 +10,8 @@ import {initMap} from './components/map';
 import {initForms} from './components/form';
 import {initParallax} from './components/parallax';
 import {initLoader} from './components/loader';
+import {initSmartSticky} from './components/stickyInfo';
+import {initTabs} from './components/tabs';
 
 document.addEventListener(`DOMContentLoaded`, () => {
   initLoader();
@@ -21,4 +23,6 @@ document.addEventListener(`DOMContentLoaded`, () => {
   initMap();
   initForms();
   initParallax();
+  initSmartSticky();
+  initTabs();
 });
