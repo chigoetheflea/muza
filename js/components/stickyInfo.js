@@ -2,6 +2,7 @@ const INFO = `.js-info`;
 const ATTS = `.js-atts`;
 
 const STICKY_ACTIVE_CLASS = `project-single__sticky`;
+const INFO_HEIGHT_CLASS = `project-single__params--full-height`;
 
 const TOP_OFFSET = 100;
 const BOTTOM_OFFSET = 40;
@@ -20,6 +21,7 @@ const initSmartSticky = () => {
       const atts = info.querySelector(ATTS);
 
       info.classList.remove(STICKY_ACTIVE_CLASS);
+      info.classList.remove(INFO_HEIGHT_CLASS);
       atts?.classList.remove(STICKY_ACTIVE_CLASS);
 
       if (!isDesktop) return;
@@ -42,6 +44,8 @@ const initSmartSticky = () => {
       if (attsHeight <= availableHeight) {
         atts.style.setProperty(`--sticky-top`, `${TOP_OFFSET}px`);
         atts.classList.add(STICKY_ACTIVE_CLASS);
+
+        info.classList.add(INFO_HEIGHT_CLASS);
       }
     });
   };
