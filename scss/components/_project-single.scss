@@ -14,7 +14,6 @@
 
 .project-single__params {
     position: static;
-    height: 100%;
     padding-bottom: 30px;
 }
 
@@ -22,6 +21,10 @@
     position: sticky;
     top: 0;
     left: 0;
+
+    .project-single__atts {
+        padding-top: 50px;
+    }
 }
 
 .project-single__atts {

@@ -27,15 +27,12 @@ const TOUCH_RATIO = 1;
 const RESISTANCE_RATIO = 0.85;
 const LONG_SWIPES_RATIO = 0.2;
 const LONG_SWIPES_MS = 200;
-const INITIAL_SLIDE_INDEX = 4;
-
-const getInitialIndex = () => {
-    
-};
+const INITIAL_SLIDE_INDEX = 0;
 
 const fixInitialLoopPosition = (swiper) => {
   requestAnimationFrame(() => {
     swiper.update();
+
     swiper.slideToLoop(INITIAL_SLIDE_INDEX, 0, false);
   });
 };

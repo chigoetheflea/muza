@@ -6,10 +6,10 @@
     width: 100%;    
 
     border-left: 1px solid $gray;
-    background-color: $rust;
+    background-color: $gray-light;
 
     &:focus-within {
-        background-color: $rust;
+        background-color: $gray-light;
     }
     
     a {

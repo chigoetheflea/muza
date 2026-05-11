@@ -12,6 +12,7 @@ import {initParallax} from './components/parallax';
 import {initLoader} from './components/loader';
 import {initSmartSticky} from './components/stickyInfo';
 import {initTabs} from './components/tabs';
+import {initCookie} from './components/cookie';
 
 document.addEventListener(`DOMContentLoaded`, () => {
   initLoader();
@@ -25,4 +26,5 @@ document.addEventListener(`DOMContentLoaded`, () => {
   initParallax();
   initSmartSticky();
   initTabs();
+  initCookie();
 });

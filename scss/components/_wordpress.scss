@@ -108,6 +108,10 @@
     }
 }
 
+.wp-block-heading {
+    font-weight: 400;
+}
+
 @media (width <= $bp-768) {
     .single-projects,
     .single-activity {

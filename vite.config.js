@@ -23,10 +23,13 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
+        admin: path.resolve(__dirname, 'js/admin.js'),
       },
+
       output: {
         entryFileNames: 'js/[name].js',
         chunkFileNames: 'js/[name].js',
+
         assetFileNames: (assetInfo) => {
           const fileName = assetInfo.name || ``;
 
@@ -38,6 +41,10 @@ export default defineConfig({
             return `images/[name][extname]`;
           }
 
+          if (/\.(woff2?|ttf|otf|eot)$/i.test(fileName)) {
+            return `fonts/[name][extname]`;
+          }
+
           return `assets/[name][extname]`;
         },
       },
@@ -46,6 +53,7 @@ export default defineConfig({
 
   css: {
     postcss: './postcss.config.js',
+
     preprocessorOptions: {
       scss: {
         additionalData: `

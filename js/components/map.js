@@ -2,8 +2,8 @@ const MAP = `map`;
 const MAP_HINT = ``;
 const MAP_BALLOON_CONTENT = ``;
 const ZOOM = 17;
-const MARKER_URL = `./public/images/marker.svg`;
-const COORDS = [55.779172, 37.581128];
+const MARKER_URL = THEME?.markerURL ?? `./public/images/marker.svg`;
+const COORDS = THEME?.coords ?? [55.779172, 37.581128];
 
 const CurrentMarkerSize = {
     width: 60,
@@ -98,7 +98,7 @@ const initMap = () => {
                 },
                 {
                     iconLayout: `default#image`,
-                    iconImageHref: THEME?.markerURL ?? MARKER_URL,
+                    iconImageHref: MARKER_URL,
                     iconImageSize: [CurrentMarkerSize.width, CurrentMarkerSize.height],
                     iconImageOffset: [
                         -1 * CurrentMarkerSize.width / 2,

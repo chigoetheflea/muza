@@ -26,6 +26,8 @@ const initSmartSticky = () => {
 
       const infoHeight = info.scrollHeight;
 
+      console.log(infoHeight + " " + availableHeight);
+
       if (infoHeight <= availableHeight) {
         info.style.setProperty(`--sticky-top`, `${TOP_OFFSET}px`);
         info.classList.add(STICKY_ACTIVE_CLASS);
