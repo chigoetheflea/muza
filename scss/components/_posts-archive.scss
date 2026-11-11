@@ -34,6 +34,13 @@
 .posts-archive__item {
     border: none;
     border: 1px solid $gray;
+
+    img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+    }
 }
 
 @media (width <= $bp-560) {
