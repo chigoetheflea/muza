@@ -21,6 +21,125 @@ const SLIDE_TO_LOOP_SPEED = SLIDE_SPEED;
 const INITIAL_SLIDE_INDEX = 0;
 const RESTART_ANIMATION_TIMEOUT = 20;
 
+const DEFAULT_SLIDE_COLOR = `#f0f0f0`;
+const COLOR_SAMPLE_SIZE = 100;
+const COLOR_BUCKET_SIZE = 24;
+const EDGE_WIDTH = 10;
+
+const getEdgeColor = (image) => {
+  if (!image.naturalWidth || !image.naturalHeight) {
+    return DEFAULT_SLIDE_COLOR;
+  }
+
+  const canvas = document.createElement(`canvas`);
+  const context = canvas.getContext(`2d`, {
+    willReadFrequently: true,
+  });
+
+  if (!context) return DEFAULT_SLIDE_COLOR;
+
+  canvas.width = COLOR_SAMPLE_SIZE;
+  canvas.height = COLOR_SAMPLE_SIZE;
+
+  try {
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+    const { data } = context.getImageData(
+      0,
+      0,
+      canvas.width,
+      canvas.height,
+    );
+
+    const colors = new Map();
+
+    for (let y = 0; y < COLOR_SAMPLE_SIZE; y++) {
+      for (let x = 0; x < COLOR_SAMPLE_SIZE; x++) {
+        const isEdge =
+          x < EDGE_WIDTH ||
+          x >= COLOR_SAMPLE_SIZE - EDGE_WIDTH ||
+          y < EDGE_WIDTH ||
+          y >= COLOR_SAMPLE_SIZE - EDGE_WIDTH;
+
+        if (!isEdge) continue;
+
+        const i = (y * COLOR_SAMPLE_SIZE + x) * 4;
+
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const a = data[i + 3];
+
+        if (a < 128) continue;
+
+        const key = [
+          Math.floor(r / COLOR_BUCKET_SIZE),
+          Math.floor(g / COLOR_BUCKET_SIZE),
+          Math.floor(b / COLOR_BUCKET_SIZE),
+        ].join(`,`);
+
+        if (!colors.has(key)) {
+          colors.set(key, {
+            count: 0,
+            r: 0,
+            g: 0,
+            b: 0,
+          });
+        }
+
+        const color = colors.get(key);
+
+        color.count++;
+        color.r += r;
+        color.g += g;
+        color.b += b;
+      }
+    }
+
+    let dominant = null;
+
+    colors.forEach((color) => {
+      if (!dominant || color.count > dominant.count) {
+        dominant = color;
+      }
+    });
+
+    if (!dominant) return DEFAULT_SLIDE_COLOR;
+
+    const r = Math.round(dominant.r / dominant.count);
+    const g = Math.round(dominant.g / dominant.count);
+    const b = Math.round(dominant.b / dominant.count);
+
+    return `rgb(${r}, ${g}, ${b})`;
+  } catch (error) {
+    return DEFAULT_SLIDE_COLOR;
+  }
+};
+
+const setSlideBackgroundColors = (slider) => {
+  const slides = slider.querySelectorAll(`.swiper-slide`);
+
+  slides.forEach((slide) => {
+    const image = slide.querySelector(SLIDE_IMAGE);
+
+    if (!image) return;
+
+    const applyColor = () => {
+      slide.style.backgroundColor = getEdgeColor(image);
+    };
+
+    if (image.complete) {
+      applyColor();
+    } else {
+      image.addEventListener(`load`, applyColor, { once: true });
+
+      image.addEventListener(`error`, () => {
+        slide.style.backgroundColor = DEFAULT_SLIDE_COLOR;
+      }, { once: true });
+    }
+  });
+};
+
 const clearActiveDots = (dots) => {
   dots.forEach((dot) => {
     dot.classList.remove(ACTIVE_DOT_CLASS);
@@ -106,6 +225,10 @@ const initHeroSlider = () => {
 
     if (!dots.length) return;
 
+    setSlideBackgroundColors(slider);
+
+    let previousSlideIndex = INITIAL_SLIDE_INDEX;
+
     const swiper = new Swiper(slider, {
       modules: [Autoplay, Navigation],
       loop: true,
@@ -122,12 +245,22 @@ const initHeroSlider = () => {
         },
 
         slideChange() {
+          if (this.realIndex === previousSlideIndex) return;
+
+          previousSlideIndex = this.realIndex;
+
           setActiveDot(dots, this.realIndex);
           clearAnimatedImages(images);
           clearActiveInfos(infos);
         },
 
         slideChangeTransitionEnd() {
+          setActiveSlideState(this);
+        },
+
+        resize() {
+          clearAnimatedImages(images);
+          clearActiveInfos(infos);
           setActiveSlideState(this);
         },
       },

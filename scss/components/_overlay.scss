@@ -1,0 +1,19 @@
+.overlay {
+    @include transition;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    width: 100vw;
+    height: 100vh;
+    
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    pointer-events: none !important;
+
+    &--active {
+        opacity: 1;
+    }
+}

@@ -5,10 +5,19 @@ const MENU_ACTIVE_CLASS = `menu__wrapper--active`;
 const MENU_CONTROL_CLOSE_CLASS = `menu__control--close`;
 const MENU_HEIGHT_CSS_VAR = `--menu-height`;
 
+const OVERLAY = `.js-overlay`;
+const OVERLAY_ACTIVE_CLASS = `overlay--active`;
+
 const setMenuHeight = (menu) => {
   if (!menu) return;
 
   menu.style.setProperty(MENU_HEIGHT_CSS_VAR, `${menu.scrollHeight}px`);
+};
+
+const toggleOverlay = (show) => {
+  const overlay = document.querySelector(OVERLAY);
+
+  overlay.classList.toggle(OVERLAY_ACTIVE_CLASS);
 };
 
 const openMenu = (menu, control) => {
@@ -28,6 +37,8 @@ const closeMenu = (menu, control) => {
 };
 
 const toggleMenu = (menu, control) => {
+  toggleOverlay();
+
   const isOpened = menu.classList.contains(MENU_ACTIVE_CLASS);
 
   if (isOpened) {
@@ -41,7 +52,7 @@ const toggleMenu = (menu, control) => {
 
 const initMenu = () => {
   const control = document.querySelector(MENU_CONTROL);
-  const menu = document.querySelector(MENU);
+  const menu = document.querySelector(MENU);  
 
   if (!control || !menu) return;
 

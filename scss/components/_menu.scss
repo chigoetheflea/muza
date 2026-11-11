@@ -117,9 +117,9 @@
         top: 0;
         right: 0;
         
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 0;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 10px;
         width: 100%;
         padding: $pdd-top-bottom $pdd-side; 
 
@@ -133,6 +133,7 @@
             flex-direction: column;
             width: 100%;
             height: 0;
+            order: 4;
 
             border: 1px solid $gray;
             opacity: 0;
@@ -158,17 +159,22 @@
             margin-top: 10px;         
             opacity: 1;
             pointer-events: auto;  
+        }        
+
+        .menu__lang {
+            order: 1;
         }
 
-        .menu__button,
-        .menu__lang {
-            margin-top: 10px;
+        .menu__control {
+            order: 3;
         }
 
         .menu__button {
+            order: 2;
             padding: 0;
             width: 60px;
             height: 50px;
+
             border: 1px solid $gray;
 
             span {
@@ -276,8 +282,12 @@
 
 @media (width <= $bp-560) {
     .menu--top {
+        flex-direction: column;
+        align-items: flex-end;
         padding-left: $pdd-side-medium;
         padding-right: $pdd-side-medium;
+
+
     }    
 }
 

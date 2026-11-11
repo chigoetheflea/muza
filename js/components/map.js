@@ -2,8 +2,8 @@ const MAP = `map`;
 const MAP_HINT = ``;
 const MAP_BALLOON_CONTENT = ``;
 const ZOOM = 17;
-const MARKER_URL = THEME?.markerURL ?? `./public/images/marker.svg`;
-const COORDS = THEME?.coords ?? [55.779172, 37.581128];
+const MARKER_URL = window.THEME?.markerURL ?? `./public/images/marker.svg`;
+const COORDS = window.THEME?.coords ?? [55.779172, 37.581128];
 
 const CurrentMarkerSize = {
     width: 60,

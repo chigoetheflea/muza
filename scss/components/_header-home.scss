@@ -38,8 +38,20 @@
     }
 }
 
+@media (width <= $bp-990) {
+    .header-home__logo {
+        max-width: 250px;
+    }
+}
+
 @media (width <= $bp-768) {
     .header-home__logo {
         margin-right: 100px;
+    }
+}
+
+@media (width <= $bp-414) {
+    .header-home__logo {
+        margin-right: 200px;
     }
 }
