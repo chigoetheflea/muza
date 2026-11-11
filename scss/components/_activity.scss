@@ -5,6 +5,13 @@
 
 .activity__case {
     transform: translateX(50px) !important;  
+
+    img {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+    }
 }
 
 .activity__slider {
